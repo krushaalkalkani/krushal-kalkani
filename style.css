@@ -99,7 +99,7 @@ button a i {
 
 .intro {
   padding: 3rem 0;
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto; /* Centers horizontally */
   text-align: left; /* Centers the text inside */
   display: flex;
@@ -119,14 +119,14 @@ button a i {
 
 .intro p:last-child {
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 300;
   color: #868e96;
   margin-top: 0.5rem;
   letter-spacing: 0.5px;
 }
 
 .intro h1 {
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 500;
   color: #adb5bd;
   margin-bottom: 1rem;
@@ -155,7 +155,7 @@ button a i {
 }
 
 .company-position {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 200;
   margin-left: 20px;
   margin-bottom: 10px;
@@ -165,7 +165,7 @@ button a i {
   font-weight: 100;
   font-style: italic;
   color: #495057;
-  font-size: 12px;
+  font-size: 16px;
   margin-left: 20px;
   margin-bottom: 10px;
 }
@@ -327,7 +327,7 @@ button a {
 }
 
 #about-para a {
-  color: #868e96;
+  color: #adb5bd;
   text-decoration: none;
   font-weight: 100;
 }
@@ -378,7 +378,7 @@ button a {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 0; /* Changed from 600px to fix layout */
+  margin-top: 500px; /* Changed from 600px to fix layout */
 }
 
 .contact-form form {
@@ -411,6 +411,7 @@ button a {
   border: none;
   border-radius: 5px;
   font-size: 16px;
+
   font-weight: 200;
   cursor: pointer;
   transition: background 0.3s;
