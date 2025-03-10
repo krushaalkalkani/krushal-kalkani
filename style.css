@@ -90,6 +90,11 @@ body {
   background-color: transparent;
 }
 
+/* Icon styling */
+button a i {
+  margin-right: 8px;
+}
+
 /* Intro part  */
 
 .intro {
@@ -220,6 +225,8 @@ button a {
   text-decoration: none;
   color: #e9ecef;
   font-weight: 200;
+  display: flex;
+  align-items: center;
 }
 
 /*-------- Portfolio Container -------- */
@@ -234,6 +241,20 @@ button a {
   color: #adb5bd;
   letter-spacing: 0.5px;
   line-height: 1.1;
+  position: relative; /* For positioning the project number */
+}
+
+/* Project Number */
+.project-number {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 64px;
+  font-weight: 700;
+  color: rgba(173, 181, 189, 0.15); /* Semi-transparent light color */
+  z-index: 1;
+  line-height: 1;
+  letter-spacing: -1px;
 }
 
 /* Project Image */
@@ -243,6 +264,8 @@ button a {
   margin-bottom: 15px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  position: relative; /* Ensure image is above the number */
+  z-index: 0;
 }
 /* Project Title */
 .project-title {
@@ -322,10 +345,15 @@ button a {
   padding: 10px 15px;
   border-radius: 5px;
   font-size: 16px;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   transition: background 0.3s;
   border: 1px solid;
   cursor: pointer;
+}
+
+.btn i {
+  margin-right: 8px;
 }
 
 .btn-primary {
@@ -443,6 +471,11 @@ footer {
     width: 90%;
   }
 
+  /* Project number */
+  .project-number {
+    font-size: 48px;
+  }
+
   /* About section */
   #about {
     flex-direction: column;
@@ -500,5 +533,12 @@ footer {
   .btn {
     width: 100%;
     text-align: center;
+    justify-content: center;
+  }
+
+  .project-number {
+    font-size: 36px;
+    top: 10px;
+    left: 10px;
   }
 }
