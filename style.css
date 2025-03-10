@@ -28,7 +28,7 @@ body {
   font-size: 62px;
   font-weight: 500;
   text-align: center;
-  margin-top: 85px;
+  margin-top: 200px;
   margin-bottom: 60px;
 }
 
@@ -68,10 +68,11 @@ body {
   font-weight: 200;
   padding: 8px 16px;
   background-color: #212529;
-  border: 1px solid #ddd;
+  border: 1px solid #e9ecef;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin: 0;
 }
 
 .right-nav button:hover {
@@ -131,7 +132,7 @@ body {
 .work-experience {
   max-width: 900px;
   background-color: #212529;
-  margin: 20px auto;
+  margin: 100px auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
@@ -142,6 +143,8 @@ body {
 .company-img {
   width: 100%;
   margin-bottom: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .company-position {
@@ -171,6 +174,7 @@ body {
 
 .company-about {
   color: #868e96;
+  font-weight: 200;
   font-size: 1rem;
   margin-left: 20px;
   line-height: 1.5;
@@ -189,7 +193,8 @@ body {
 }
 
 .tech-stack li {
-  color: #ddd;
+  color: #adb5bd;
+  font-weight: 100;
   border: 1px solid #868e96;
   padding: 5px 10px;
   border-radius: 5px;
@@ -198,26 +203,21 @@ body {
 
 button {
   background-color: #343a40;
-  border: 1px solid #ddd;
-  color: #ddd;
-  border: none;
+  color: #e9ecef;
+  border: none; /* Remove duplicate border property */
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s;
-  margin-left: 20px;
-  margin-bottom: 10px;
-}
-
-button:hover {
-  background-color: #212529;
-  border: 1px solid #343a40;
+  transition: background 0.3s ease-in-out;
+  display: inline-block; /* Ensures proper spacing */
+  margin: 20px 0 40px 20px;
 }
 
 button a {
   text-decoration: none;
   color: #e9ecef;
+  font-weight: 200;
 }
 
 /*-------- Portfolio Container -------- */
@@ -225,7 +225,7 @@ button a {
 .projects {
   max-width: 900px;
   background-color: #212529;
-  margin: 20px auto;
+  margin: 90px auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
@@ -238,8 +238,9 @@ button a {
 .project-img {
   width: 100%;
   margin-bottom: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
-
 /* Project Title */
 .project-title {
   font-weight: 400;
@@ -253,11 +254,11 @@ button a {
 /* Project Description */
 .project-description {
   color: #868e96;
+  font-weight: 200;
   font-size: 1rem;
   margin-left: 20px;
   line-height: 1.5;
   margin-bottom: 20px;
-  font-weight: 300;
 }
 
 /* About Section */
@@ -274,7 +275,6 @@ button a {
 #about-para {
   max-width: 500px;
   text-align: left;
-  margin-top: 90px;
   margin-bottom: 200px;
 }
 
@@ -293,14 +293,15 @@ button a {
 
 #about-para p {
   font-size: 18px;
-  color: #495057;
+  font-weight: 200;
+  color: #868e96;
   line-height: 1.5;
   letter-spacing: 1.1px;
   margin-bottom: 15px;
 }
 
 #about-para a {
-  color: #28a745;
+  color: #868e96;
   text-decoration: none;
   font-weight: 100;
 }
@@ -373,8 +374,8 @@ button a {
 }
 
 .contact-form button {
-  background-color: #28a745;
-  color: white;
+  background-color: #495057;
+  color: #e9ecef;
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -386,7 +387,7 @@ button a {
 }
 
 .contact-form button:hover {
-  background-color: #218638;
+  background-color: #343a40;
 }
 
 /* Footer  */
@@ -400,7 +401,7 @@ footer {
 }
 
 .copyright {
-  margin-top: 24px;
+  margin-top: 100px;
   font-size: 14px;
   font-weight: 100;
   letter-spacing: 0.5px;

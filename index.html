@@ -15,15 +15,24 @@
       href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Add Font Awesome in Head -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
     <title>Krushal Kalkani</title>
   </head>
+
+  <!-- Body   -->
+
   <body>
     <div class="container">
       <nav class="main-header">
         <div class="center-nav">
-          <a href="#">About</a>
-          <a href="#">Experience</a>
-          <a href="#">Eduction</a>
+          <a href="#about">About</a>
+          <a href="#work">Experience</a>
         </div>
         <div class="right-nav">
           <button>
@@ -38,14 +47,14 @@
       </nav>
     </div>
     <div class="intro">
-      <p>
-        Making smoother Experience with machine learning and artificial
-        intellegence
-      </p>
+      <p>Breaking Digital Limits, Unleashing Epic Realities with AI and ML</p>
       <h1>Hey, I'm Krushal</h1>
-      <p>I love to solve problem and tackle big chalanges.</p>
+      <p>
+        I love solving problems, building projects, and making an impact with
+        technology.
+      </p>
     </div>
-    <h1 class="section-title">Where I have work</h1>
+    <h1 class="section-title" id="work">Where I've worked</h1>
     <div class="work-experience">
       <img
         src="./Images/company-img.png"
@@ -64,10 +73,13 @@
       <ol class="tech-stack">
         <li>Python</li>
         <li>JavaScript</li>
+        <li>Odoo</li>
       </ol>
       <button><a href="#">Github</a></button>
     </div>
     <h1 class="section-title">Feature Projects</h1>
+
+    <!-- Project 1 -->
     <div class="projects">
       <img src="./Images/ML.png" alt="" class="project-img" />
       <h2 class="project-title">Predictive Analytics for Startups</h2>
@@ -84,6 +96,67 @@
       <button><a href="#">Github</a></button>
       <button><a href="#">Live</a></button>
     </div>
+
+    <!-- Project 2 -->
+    <div class="projects">
+      <img src="./Images/Google-Keep.png" alt="" class="project-img" />
+      <h2 class="project-title">Google Keep Clone</h2>
+      <p class="project-description">
+        A Google Keep clone built with React.js for creating, editing, and
+        managing notes. It allows users to add, delete, and organize notes
+        efficiently with a clean and responsive UI, providing a seamless
+        note-taking experience.
+      </p>
+      <ol class="tech-stack">
+        <li>React.js</li>
+        <li>HTML</li>
+        <li>CSS</li>
+      </ol>
+      <button>
+        <a
+          href="https://github.com/krushaalkalkani/google-keep-clone"
+          target="_blank"
+          >Github</a
+        >
+      </button>
+      <button><a href="#">Live</a></button>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="projects">
+      <img
+        src="./Images/Todolist-App.png"
+        alt="Project 3"
+        alt=""
+        class="project-img"
+      />
+      <h2 class="project-title">TODO List</h2>
+      <p class="project-description">
+        A Productive task management app that lets users add, delete, and check
+        tasks. It keeps track of total items and updates dynamically, ensuring
+        an organized to-do list experience.
+      </p>
+      <ol class="tech-stack">
+        <li>Java Script</li>
+        <li>HTML</li>
+        <li>CSS</li>
+      </ol>
+      <button>
+        <a
+          href="https://github.com/krushaalkalkani/todolist-app?tab=readme-ov-file"
+          target="_blank"
+          >Github</a
+        >
+      </button>
+      <button>
+        <a
+          href="https://krushaalkalkani.github.io/todolist-app/"
+          target="_blank"
+          >Live</a
+        >
+      </button>
+    </div>
+
     <div id="about">
       <div id="about-para">
         <p>A BIT ABOUT ME</p>
@@ -102,7 +175,6 @@
           >
           Let's connect, work together, and create something great.
         </p>
-        <!-- Buttons -->
         <div class="button-container">
           <a href="mailto:kkalkani2024@fau.edu" class="btn btn-primary"
             >Get in Touch</a
