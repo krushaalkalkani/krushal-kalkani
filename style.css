@@ -11,7 +11,7 @@ Grey color: #868e96
 */
 
 * {
-  font-family: "Funnel+Display", sans-serif;
+  font-family: "Funnel Display", sans-serif; /* Fixed font family name */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -37,6 +37,7 @@ body {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px; /* Added padding for mobile */
 }
 
 .main-header {
@@ -89,13 +90,13 @@ body {
   background-color: transparent;
 }
 
-/* Inro part  */
+/* Intro part  */
 
 .intro {
   padding: 3rem 0;
   max-width: 800px;
   margin: 0 auto; /* Centers horizontally */
-  text-align: center; /* Centers the text inside */
+  text-align: left; /* Centers the text inside */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -111,6 +112,14 @@ body {
   letter-spacing: 0.5px;
 }
 
+.intro p:last-child {
+  font-size: 20px;
+  font-weight: 400;
+  color: #868e96;
+  margin-top: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
 .intro h1 {
   font-size: 3.5rem;
   font-weight: 500;
@@ -118,14 +127,6 @@ body {
   margin-bottom: 1rem;
   line-height: 1;
   letter-spacing: 1px;
-}
-
-.intro p:last-child {
-  font-size: 20px;
-  font-weight: 400;
-  color: #868e96;
-  margin-top: 0.5rem;
-  letter-spacing: 0.5px;
 }
 
 /* Work experience container */
@@ -142,6 +143,7 @@ body {
 }
 .company-img {
   width: 100%;
+  height: auto; /* Added for responsiveness */
   margin-bottom: 15px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -204,7 +206,7 @@ body {
 button {
   background-color: #343a40;
   color: #e9ecef;
-  border: none; /* Remove duplicate border property */
+  border: none;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 1rem;
@@ -237,6 +239,7 @@ button a {
 /* Project Image */
 .project-img {
   width: 100%;
+  height: auto; /* Added for responsiveness */
   margin-bottom: 15px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -266,7 +269,7 @@ button a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Changed from center to fix alignment */
   padding: 40px 20px;
   background-color: #212529;
   gap: 90px;
@@ -275,7 +278,7 @@ button a {
 #about-para {
   max-width: 500px;
   text-align: left;
-  margin-bottom: 200px;
+  margin-bottom: 0; /* Changed from 200px to fix spacing */
 }
 
 #about-para p:first-child {
@@ -347,7 +350,7 @@ button a {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 600px;
+  margin-top: 0; /* Changed from 600px to fix layout */
 }
 
 .contact-form form {
@@ -405,4 +408,97 @@ footer {
   font-size: 14px;
   font-weight: 100;
   letter-spacing: 0.5px;
+}
+
+/* Mobile responsive styles from the previous artifact */
+@media (max-width: 768px) {
+  /* Header and navigation */
+  .main-header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .right-nav,
+  .center-nav {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Intro section */
+  .intro {
+    padding: 2rem 1rem;
+    min-height: 60vh;
+    align-items: center;
+    text-align: center;
+  }
+
+  .intro h1 {
+    font-size: 2.5rem;
+  }
+
+  /* Work experience and projects */
+  .work-experience,
+  .projects {
+    margin: 60px auto;
+    width: 90%;
+  }
+
+  /* About section */
+  #about {
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px;
+  }
+
+  #about-para {
+    margin-bottom: 20px;
+    width: 90%;
+  }
+
+  .contact-form {
+    margin-top: 40px;
+    width: 90%;
+  }
+
+  /* Tech stack and buttons */
+  .tech-stack {
+    margin-left: 10px;
+  }
+
+  button {
+    margin: 10px 5px 20px 10px;
+  }
+
+  /* Section titles */
+  .section-title {
+    font-size: 42px;
+    margin-top: 100px;
+    margin-bottom: 40px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .intro h1 {
+    font-size: 2rem;
+  }
+
+  .company-name,
+  .project-title {
+    font-size: 28px;
+  }
+
+  .section-title {
+    font-size: 36px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
 }
