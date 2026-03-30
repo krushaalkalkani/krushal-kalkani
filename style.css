@@ -1,7 +1,6 @@
 :root {
   --bg: #0a0d11;
   --surface: #11161d;
-  --surface-soft: #161c24;
   --text: #eef2f7;
   --text-soft: #bcc5d1;
   --text-faint: #7f8998;
@@ -44,7 +43,6 @@ body {
 body[data-theme="light"] {
   --bg: #f4efe6;
   --surface: #ffffff;
-  --surface-soft: #e9e3d9;
   --text: #171a20;
   --text-soft: #4c5562;
   --text-faint: #7a8390;
@@ -255,12 +253,6 @@ body[data-theme="light"] .theme-icon-moon {
   border: 1px solid var(--line);
 }
 
-.media-note {
-  color: var(--text-faint);
-  font-size: 13px;
-  line-height: 1.65;
-}
-
 .section {
   padding: 0 0 44px;
 }
@@ -361,12 +353,6 @@ body[data-theme="light"] .theme-icon-moon {
   border-top: 1px solid var(--line);
 }
 
-.item-meta {
-  color: var(--text-faint);
-  font-size: 14px;
-  line-height: 1.7;
-}
-
 .item-copy h3 {
   margin-bottom: 8px;
   color: var(--text);
@@ -451,9 +437,11 @@ body[data-theme="light"] .theme-icon-moon {
 }
 
 .detail-line {
-  margin-bottom: 12px;
+  margin-bottom: 13px;
   color: var(--text-faint);
-  font-size: 13px;
+  font-size: 11px;
+  font-style: italic;
+  line-height: 1.55;
 }
 
 @media (max-width: 900px) {
@@ -544,10 +532,6 @@ body[data-theme="light"] .theme-icon-moon {
 
   .experience-head {
     margin-bottom: 16px;
-  }
-
-  .experience-item .item-copy {
-    padding: 16px;
   }
 
   .role-heading h4 {
