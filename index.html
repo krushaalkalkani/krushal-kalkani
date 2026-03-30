@@ -16,454 +16,390 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;display=swap"
       rel="stylesheet"
     />
     <link rel="icon" type="image/png" href="./Images/favicon.png" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
     <title>Krushal Kalkani - Portfolio</title>
   </head>
 
   <body>
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress" id="scrollProgress"></div>
+    <main class="page-shell">
+      <aside class="side-nav">
+        <a href="#about" class="brand">Krushal</a>
 
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-      <div class="nav-container">
-        <a href="#" class="nav-logo">KK</a>
-        <div class="nav-links" id="navLinks">
-          <a href="#about" class="nav-link">About</a>
-          <a href="#work" class="nav-link">Experience</a>
-          <a href="#projects" class="nav-link">Projects</a>
-        </div>
-        <div class="nav-actions">
-          <a
-            href="https://github.com/krushaalkalkani"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="nav-btn"
-          >
-            <i class="fab fa-github"></i> GitHub
-          </a>
-          <a
-            href="./Krushal_Kalkani_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="nav-btn nav-btn-accent"
-          >
-            Resume
-          </a>
-          <button class="hamburger" id="hamburger" aria-label="Open menu">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-      </div>
-    </nav>
+        <nav class="side-links" aria-label="Sections">
+          <a href="#about" class="side-link active">About</a>
+          <a href="#work" class="side-link">Experience</a>
+          <a href="#projects" class="side-link">Projects</a>
+        </nav>
+      </aside>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-      <div class="hero-bg">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="grid-overlay"></div>
-      </div>
-
-      <div class="hero-inner">
-        <!-- Text -->
-        <div class="hero-text-col">
-          <p class="hero-kicker">
-            <span class="hero-kicker-dot" aria-hidden="true"></span>
-            Aspiring AI Engineer
-          </p>
-          <h1 class="hero-headline">
-            hi, <span class="hero-name-accent">Krushal</span> here.<span
-              class="hero-cursor"
-              >|</span
-            >
-          </h1>
-          <p class="hero-bio">
-            I'm a full-stack developer and ML engineer based in Florida. I build
-            scalable web apps and intelligent systems that solve real problems.
-          </p>
-          <div class="hero-actions">
-            <a href="mailto:krushal.kalkani78@gmail.com" class="btn btn-outline"
-              >Say Hi ↗</a
-            >
-            <a href="#projects" class="btn btn-ghost">View Projects</a>
-          </div>
-        </div>
-      </div>
-
-      <a href="#about" class="scroll-down" aria-label="Scroll down">
-        <i class="fas fa-chevron-down"></i>
-      </a>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-      <div class="section-container">
-        <div class="about-grid">
-          <!-- Photo LEFT -->
-          <div class="about-photo-wrap fade-in">
-            <div class="about-photo-frame">
-              <img
-                src="./Images/krushal.jpg"
-                alt="Krushal Kalkani"
-                class="about-photo"
-              />
-              <div class="about-photo-badge">
-                <span class="badge-dot"></span> Open to work
-              </div>
-            </div>
-          </div>
-
-          <!-- Text RIGHT -->
-          <div class="about-text fade-in">
-            <p class="section-label">About</p>
-            <h2 class="section-heading">A little about me.</h2>
-            <p>
-              I'm a developer who enjoys building clean, useful software. I care
-              about writing understandable code and improving with every
-              project. I specialize in AI/ML and full-stack web development
-              using Python, JavaScript, and React.
+      <div class="content-column">
+        <section id="about" class="hero content-view">
+          <div class="hero-copy">
+            <p class="eyebrow">Full-stack developer + ML engineer</p>
+            <h1>Krushal Kalkani</h1>
+            <p class="lead">
+              I build practical web products and machine learning systems with a
+              focus on clarity, performance, and real-world usefulness.
             </p>
-            <p>
-              Outside of coding, I enjoy running, training, and listening to
-              music. Feel free to connect with me on any of my socials.
+            <p class="hero-text">
+              Based in Florida, I work across web development and machine
+              learning using Python, JavaScript, and React. I care about clean
+              implementation, readable code, and products that feel technically
+              strong without being overdesigned.
             </p>
-            <div class="about-socials">
+            <p class="contact-line">
+              For opportunities or collaboration, reach me at
+              <a href="mailto:krushal.kalkani78@gmail.com">krushal.kalkani78@gmail.com</a>.
+            </p>
+            <div class="inline-links">
+              <a
+                href="https://github.com/krushaalkalkani"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
               <a
                 href="https://www.linkedin.com/in/krushal-kalkani/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="LinkedIn"
               >
-                <i class="fab fa-linkedin-in"></i>
+                LinkedIn
               </a>
               <a
                 href="https://x.com/krushalk22"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="X"
               >
-                <i class="fab fa-x-twitter"></i>
-              </a>
-              <a
-                href="https://www.threads.com/@krushal.kalkani"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Threads"
-              >
-                <i class="fab fa-threads"></i>
+                X
               </a>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Experience Section -->
-    <section id="work" class="section">
-      <div class="section-container">
-        <p class="section-label fade-in">Experience</p>
-        <h2 class="section-heading fade-in">Where I've Worked</h2>
-
-        <div class="exp-tabs fade-in">
-          <!-- Left: company tab list -->
-          <div class="exp-tab-list" role="tablist" aria-label="Companies">
-            <button
-              class="exp-tab active"
-              data-target="exp-brainvire"
-              role="tab"
-              aria-selected="true"
-              aria-controls="exp-brainvire"
-            >
-              <span class="exp-tab-num">01</span>
-              <span class="exp-tab-info">
-                <span class="exp-tab-company">Brainvire</span>
-                <span class="exp-tab-year">2023</span>
-              </span>
-            </button>
-          </div>
-
-          <!-- Right: content panels -->
-          <div class="exp-panel active" id="exp-brainvire" role="tabpanel">
-            <div class="exp-panel-top">
-              <h3 class="exp-panel-title">
-                Software Developer
-                <span class="exp-panel-at">@</span>
-                <span class="exp-panel-co">Brainvire Infotech</span>
-              </h3>
-              <span class="exp-panel-date">
-                <i class="far fa-calendar-alt"></i> Feb 2023 – Dec 2023
-              </span>
-            </div>
-            <p class="exp-panel-desc">
-              I worked on Odoo modules using Python and ORM methods, built POS
-              workflows with clear business logic, and shipped features with OWL
-              JavaScript. Collaborated with cross-functional teams to deliver
-              scalable business solutions.
+          <div class="hero-media">
+            <img
+              src="./Images/krushal.jpg"
+              alt="Krushal Kalkani"
+              class="portrait"
+            />
+            <p class="media-note">
+              Open to software engineering, full-stack, and AI/ML opportunities.
             </p>
-            <ul class="tech-stack" aria-label="Technologies used">
-              <li>Python</li>
-              <li>JavaScript</li>
-              <li>Odoo</li>
-              <li>OWL</li>
-            </ul>
-            <a
-              href="https://github.com/krushaalkalkani/odoo-projects"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="card-link"
-            >
-              <i class="fab fa-github"></i> View Work
-              <i class="fas fa-external-link-alt"></i>
-            </a>
           </div>
-        </div>
+        </section>
+
+        <section id="work" class="section content-view" hidden>
+          <div class="section-heading-wrap">
+            <p class="section-label">Experience</p>
+            <h2>Recent work</h2>
+          </div>
+
+          <article class="list-item">
+            <div class="item-meta">
+              <p>2023</p>
+              <p>Brainvire</p>
+            </div>
+
+            <div class="item-copy">
+              <h3>Software Developer at Brainvire Infotech</h3>
+              <p>
+                I worked on Odoo modules using Python and ORM methods, built POS
+                workflows with clear business logic, and shipped features with OWL
+                JavaScript while collaborating with cross-functional teams.
+              </p>
+              <p class="detail-line">Python / JavaScript / Odoo / OWL</p>
+              <div class="inline-links">
+                <a
+                  href="https://github.com/krushaalkalkani/odoo-projects"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Work
+                </a>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section id="projects" class="section content-view" hidden>
+          <div class="section-heading-wrap">
+            <p class="section-label">Projects</p>
+            <h2>Selected work</h2>
+          </div>
+
+          <div class="project-tabs">
+            <div class="project-tab-list" role="tablist" aria-label="Projects">
+              <button
+                id="project-tab-01"
+                class="project-tab active"
+                data-target="project-01"
+                role="tab"
+                aria-selected="true"
+                aria-controls="project-01"
+              >
+                <span class="project-tab-index">01</span>
+                <span class="project-tab-title">Predictive Analytics</span>
+              </button>
+              <button
+                id="project-tab-02"
+                class="project-tab"
+                data-target="project-02"
+                role="tab"
+                aria-selected="false"
+                aria-controls="project-02"
+              >
+                <span class="project-tab-index">02</span>
+                <span class="project-tab-title">Google Keep Clone</span>
+              </button>
+              <button
+                id="project-tab-03"
+                class="project-tab"
+                data-target="project-03"
+                role="tab"
+                aria-selected="false"
+                aria-controls="project-03"
+              >
+                <span class="project-tab-index">03</span>
+                <span class="project-tab-title">Todo List App</span>
+              </button>
+              <button
+                id="project-tab-04"
+                class="project-tab"
+                data-target="project-04"
+                role="tab"
+                aria-selected="false"
+                aria-controls="project-04"
+              >
+                <span class="project-tab-index">04</span>
+                <span class="project-tab-title">Heart Disease Prediction</span>
+              </button>
+            </div>
+
+            <div
+              class="project-panel active"
+              id="project-01"
+              role="tabpanel"
+              aria-labelledby="project-tab-01"
+            >
+              <div class="item-meta">
+                <p>01</p>
+              </div>
+
+              <div class="item-copy">
+                <h3>Predictive Analytics for Startups</h3>
+                <p>
+                  Built a multiple linear regression model to predict startup
+                  profits from R&amp;D, marketing, and administration data, then
+                  improved it through feature scaling and backward elimination.
+                </p>
+                <p class="detail-line">Python / Machine Learning / Data Analysis</p>
+                <div class="inline-links">
+                  <a
+                    href="https://github.com/krushaalkalkani/machine-learning"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="project-panel"
+              id="project-02"
+              role="tabpanel"
+              aria-labelledby="project-tab-02"
+            >
+              <div class="item-meta">
+                <p>02</p>
+              </div>
+
+              <div class="item-copy">
+                <h3>Google Keep Clone</h3>
+                <p>
+                  A responsive React notes app for creating, editing, deleting,
+                  and organizing notes with a clean and simple interface.
+                </p>
+                <p class="detail-line">React / JavaScript / CSS</p>
+                <div class="inline-links">
+                  <a
+                    href="https://github.com/krushaalkalkani/google-keep-clone"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="project-panel"
+              id="project-03"
+              role="tabpanel"
+              aria-labelledby="project-tab-03"
+            >
+              <div class="item-meta">
+                <p>03</p>
+              </div>
+
+              <div class="item-copy">
+                <h3>Todo List App</h3>
+                <p>
+                  A simple task manager to add, complete, and remove tasks with
+                  real-time updates and a straightforward layout.
+                </p>
+                <p class="detail-line">JavaScript / HTML / CSS</p>
+                <div class="inline-links">
+                  <a
+                    href="https://github.com/krushaalkalkani/todolist-app?tab=readme-ov-file"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
+                  <a
+                    href="https://krushaalkalkani.github.io/todolist-app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="project-panel"
+              id="project-04"
+              role="tabpanel"
+              aria-labelledby="project-tab-04"
+            >
+              <div class="item-meta">
+                <p>04</p>
+              </div>
+
+              <div class="item-copy">
+                <h3>Heart Disease Prediction Web App</h3>
+                <p>
+                  Built an end-to-end ML pipeline on 8,763 patient records,
+                  engineered features, compared models, and shipped the final app
+                  with Streamlit and Docker to Hugging Face Spaces.
+                </p>
+                <p class="detail-line">Python / Scikit-learn / XGBoost / Streamlit</p>
+                <div class="inline-links">
+                  <a
+                    href="https://github.com/krushaalkalkani/heart-disease-predictor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
+                  <a
+                    href="https://huggingface.co/spaces/krushalkalkani/heart-disease-predictor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
       </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-      <div class="section-container">
-        <p class="section-label fade-in">Projects</p>
-        <h2 class="section-heading fade-in">Featured Projects</h2>
-
-        <div class="projects-list">
-          <article class="project-card fade-in">
-            <div class="project-img-wrap">
-              <img src="./Images/ML.png" alt="Predictive Analytics Dashboard" />
-              <div class="project-img-overlay"></div>
-              <span class="project-num">01</span>
-            </div>
-            <div class="project-body">
-              <h3 class="project-title">Predictive Analytics for Startups</h3>
-              <p class="project-desc">
-                Built a multiple linear regression model to predict startup
-                profits from R&amp;D, marketing, and administration data — then
-                improved it using feature scaling and backward elimination.
-              </p>
-              <ul class="tech-stack" aria-label="Technologies used">
-                <li>Python</li>
-                <li>Machine Learning</li>
-                <li>Data Analysis</li>
-              </ul>
-              <div class="project-links">
-                <a
-                  href="https://github.com/krushaalkalkani/machine-learning"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="card-link"
-                >
-                  <i class="fab fa-github"></i> GitHub
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card fade-in">
-            <div class="project-img-wrap">
-              <img src="./Images/Google-Keep.png" alt="Google Keep Clone" />
-              <div class="project-img-overlay"></div>
-              <span class="project-num">02</span>
-            </div>
-            <div class="project-body">
-              <h3 class="project-title">Google Keep Clone</h3>
-              <p class="project-desc">
-                A responsive React notes app for creating, editing, deleting,
-                and organizing notes with a clean and simple interface.
-              </p>
-              <ul class="tech-stack" aria-label="Technologies used">
-                <li>React</li>
-                <li>JavaScript</li>
-                <li>CSS</li>
-              </ul>
-              <div class="project-links">
-                <a
-                  href="https://github.com/krushaalkalkani/google-keep-clone"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="card-link"
-                >
-                  <i class="fab fa-github"></i> GitHub
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card fade-in">
-            <div class="project-img-wrap">
-              <img src="./Images/Todolist-App.png" alt="Todo List App" />
-              <div class="project-img-overlay"></div>
-              <span class="project-num">03</span>
-            </div>
-            <div class="project-body">
-              <h3 class="project-title">Todo List App</h3>
-              <p class="project-desc">
-                A simple task manager to add, complete, and remove tasks with
-                real-time updates and a straightforward layout.
-              </p>
-              <ul class="tech-stack" aria-label="Technologies used">
-                <li>JavaScript</li>
-                <li>HTML</li>
-                <li>CSS</li>
-              </ul>
-              <div class="project-links">
-                <a
-                  href="https://github.com/krushaalkalkani/todolist-app?tab=readme-ov-file"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="card-link"
-                >
-                  <i class="fab fa-github"></i> GitHub
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
-                <a
-                  href="https://krushaalkalkani.github.io/todolist-app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="card-link card-link-live"
-                >
-                  <i class="fas fa-globe"></i> Live Demo
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card fade-in">
-            <div class="project-img-wrap">
-              <img
-                src="./Images/heart_disease.png"
-                alt="Heart Disease Prediction Web App"
-              />
-              <div class="project-img-overlay"></div>
-              <span class="project-num">04</span>
-            </div>
-            <div class="project-body">
-              <h3 class="project-title">Heart Disease Prediction Web App</h3>
-              <p class="project-desc">
-                Built an end-to-end ML pipeline on 8,763 patient records,
-                engineering 23 features (including BP decomposition into
-                systolic and diastolic). Trained and compared Logistic
-                Regression, Random Forest, and XGBoost with class-weight
-                balancing and recall-first tuning, then shipped a Streamlit app
-                deployed to Hugging Face Spaces via Docker.
-              </p>
-              <ul class="tech-stack" aria-label="Technologies used">
-                <li>Python</li>
-                <li>Scikit-learn</li>
-                <li>XGBoost</li>
-                <li>Streamlit</li>
-              </ul>
-              <div class="project-links">
-                <a
-                  href="https://github.com/krushaalkalkani/heart-disease-predictor"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="card-link"
-                >
-                  <i class="fab fa-github"></i> GitHub
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
-                <a
-                  href="https://huggingface.co/spaces/krushalkalkani/heart-disease-predictor"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="card-link card-link-live"
-                >
-                  <i class="fas fa-globe"></i> Live Demo
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-container">
-        <p class="footer-copy">
-          Designed &amp; Built by Krushal Kalkani &copy; 2026
-        </p>
-      </div>
-    </footer>
+    </main>
 
     <script>
-      // Scroll progress
-      const scrollProgress = document.getElementById("scrollProgress");
-      window.addEventListener(
-        "scroll",
-        () => {
-          const total =
-            document.documentElement.scrollHeight - window.innerHeight;
-          if (total > 0)
-            scrollProgress.style.width = (window.scrollY / total) * 100 + "%";
-        },
-        { passive: true },
-      );
+      const sectionIds = ["about", "work", "projects"];
+      const views = document.querySelectorAll(".content-view");
+      const brandLink = document.querySelector(".brand");
+      const navLinks = document.querySelectorAll(".side-link");
+      const projectTabs = document.querySelectorAll(".project-tab");
+      const projectPanels = document.querySelectorAll(".project-panel");
 
-      // Navbar scroll state
-      const navbar = document.getElementById("navbar");
-      window.addEventListener(
-        "scroll",
-        () => {
-          navbar.classList.toggle("scrolled", window.scrollY > 40);
-        },
-        { passive: true },
-      );
+      const showView = (id) => {
+        const nextId = sectionIds.includes(id) ? id : sectionIds[0];
 
-      // Hamburger menu
-      const hamburger = document.getElementById("hamburger");
-      const navLinks = document.getElementById("navLinks");
-      hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        navLinks.classList.toggle("open");
+        views.forEach((view) => {
+          const isActive = view.id === nextId;
+          view.hidden = !isActive;
+          view.classList.toggle("active", isActive);
+        });
+
+        navLinks.forEach((link) => {
+          const isActive = link.getAttribute("href") === `#${nextId}`;
+          link.classList.toggle("active", isActive);
+          if (isActive) {
+            link.setAttribute("aria-current", "page");
+            const label = link.textContent.trim();
+            document.title =
+              nextId === "about"
+                ? "Krushal Kalkani - Portfolio"
+                : `${label} | Krushal Kalkani`;
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+
+        return nextId;
+      };
+
+      const changeView = (id, replace = false) => {
+        const nextId = showView(id);
+        const nextHash = `#${nextId}`;
+
+        if (window.location.hash === nextHash) {
+          return;
+        }
+
+        if (replace) {
+          window.history.replaceState(null, "", nextHash);
+        } else {
+          window.history.pushState(null, "", nextHash);
+        }
+      };
+
+      brandLink.addEventListener("click", (event) => {
+        event.preventDefault();
+        changeView("about");
       });
-      document.querySelectorAll(".nav-link").forEach((link) => {
-        link.addEventListener("click", () => {
-          hamburger.classList.remove("active");
-          navLinks.classList.remove("open");
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          const targetId = link.getAttribute("href").slice(1);
+          changeView(targetId);
         });
       });
 
-      // Experience tabs
-      document.querySelectorAll(".exp-tab").forEach((tab) => {
+      const initialView = window.location.hash.slice(1) || sectionIds[0];
+      changeView(initialView, true);
+      window.addEventListener("hashchange", () => {
+        showView(window.location.hash.slice(1) || sectionIds[0]);
+      });
+
+      projectTabs.forEach((tab) => {
         tab.addEventListener("click", () => {
-          document.querySelectorAll(".exp-tab").forEach((t) => {
-            t.classList.remove("active");
-            t.setAttribute("aria-selected", "false");
+          projectTabs.forEach((item) => {
+            item.classList.remove("active");
+            item.setAttribute("aria-selected", "false");
           });
-          document
-            .querySelectorAll(".exp-panel")
-            .forEach((p) => p.classList.remove("active"));
+
+          projectPanels.forEach((panel) => {
+            panel.classList.remove("active");
+          });
+
           tab.classList.add("active");
           tab.setAttribute("aria-selected", "true");
           document.getElementById(tab.dataset.target).classList.add("active");
         });
       });
-
-      // Scroll reveal
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) entry.target.classList.add("visible");
-          });
-        },
-        { threshold: 0.1 },
-      );
-      document
-        .querySelectorAll(".fade-in")
-        .forEach((el) => observer.observe(el));
     </script>
   </body>
 </html>
