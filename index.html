@@ -26,29 +26,66 @@
   <body>
     <main class="page-shell">
       <aside class="side-nav">
-        <a href="#about" class="brand">Krushal</a>
-
         <nav class="side-links" aria-label="Sections">
           <a href="#about" class="side-link active">About</a>
           <a href="#work" class="side-link">Experience</a>
           <a href="#projects" class="side-link">Projects</a>
         </nav>
+
+        <div class="side-tools">
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch to light mode"
+            aria-pressed="false"
+            title="Toggle theme"
+          >
+            <svg
+              class="theme-icon theme-icon-moon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M21 12.8A9 9 0 1 1 11.2 3a7.2 7.2 0 0 0 9.8 9.8Z"
+              />
+            </svg>
+            <svg
+              class="theme-icon theme-icon-sun"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" />
+            </svg>
+          </button>
+        </div>
       </aside>
 
       <div class="content-column">
         <section id="about" class="hero content-view">
           <div class="hero-copy">
-            <p class="eyebrow">Full-stack developer + ML engineer</p>
-            <h1>Krushal Kalkani</h1>
+            <p class="eyebrow">MS in Computer Science · Florida Atlantic University</p>
             <p class="lead">
-              I build practical web products and machine learning systems with a
-              focus on clarity, performance, and real-world usefulness.
+              I’m 24 and currently pursuing my master’s in Computer Science at
+              Florida Atlantic University, graduating in May 2026.
             </p>
             <p class="hero-text">
-              Based in Florida, I work across web development and machine
-              learning using Python, JavaScript, and React. I care about clean
-              implementation, readable code, and products that feel technically
-              strong without being overdesigned.
+              Right now, I’m open to ML engineer, software engineering, and
+              internship opportunities. I’m especially passionate about machine
+              learning and AI, particularly deep learning, and I enjoy building
+              projects that solve real problems.
+            </p>
+            <p class="hero-text">
+              I also like using AI in everyday life for learning, managing
+              finances, and making work more efficient. I see AI as something
+              genuinely helpful when it’s used in the right way.
+            </p>
+            <p class="hero-text">
+              I’m originally from Rajkot, Gujarat, India, and I’m currently
+              based in Florida. I’m also open to relocation. Outside of coding,
+              I enjoy running, lifting weights, reading, listening to podcasts,
+              and keeping things organized online and offline.
             </p>
             <p class="contact-line">
               For opportunities or collaboration, reach me at
@@ -85,9 +122,6 @@
               alt="Krushal Kalkani"
               class="portrait"
             />
-            <p class="media-note">
-              Open to software engineering, full-stack, and AI/ML opportunities.
-            </p>
           </div>
         </section>
 
@@ -97,27 +131,121 @@
             <h2>Recent work</h2>
           </div>
 
-          <article class="list-item">
-            <div class="item-meta">
-              <p>2023</p>
-              <p>Brainvire</p>
-            </div>
-
+          <article class="list-item experience-item">
             <div class="item-copy">
-              <h3>Software Developer at Brainvire Infotech</h3>
-              <p>
-                I worked on Odoo modules using Python and ORM methods, built POS
-                workflows with clear business logic, and shipped features with OWL
-                JavaScript while collaborating with cross-functional teams.
-              </p>
-              <p class="detail-line">Python / JavaScript / Odoo / OWL</p>
-              <div class="inline-links">
+              <div class="experience-head">
+                <h3>Florida Atlantic University</h3>
+                <p class="experience-summary">2025 - Present · Boca Raton, FL</p>
+              </div>
+
+              <div class="role-stack">
+                <div class="role-block">
+                  <div class="role-heading">
+                    <div class="role-title-group">
+                      <h4>Elite Owl Ambassador (Leadership &amp; Service)</h4>
+                    </div>
+                    <p class="role-date">Mar 2025 - Present · Hybrid</p>
+                  </div>
+                  <p>
+                    Selected for the competitive 2025-26 Elite Owls Ambassador
+                    cohort, representing the university as a student leader and
+                    supporting initiatives such as Leadership Labs and the
+                    Legacy 61 program.
+                  </p>
+                  <p class="detail-line">
+                    Leadership / Student Engagement / Event Planning
+                  </p>
+                </div>
+
+                <div class="role-block">
+                  <div class="role-heading">
+                    <div class="role-title-group">
+                      <h4>FDS</h4>
+                    </div>
+                    <p class="role-date">Aug 2025 - Present · On-site</p>
+                  </div>
+                  <p>
+                    Assist students and visitors, manage daily administrative
+                    responsibilities, and support housing operations with clear
+                    communication and professionalism.
+                  </p>
+                  <p class="detail-line">
+                    Student Support / Operations / Communication
+                  </p>
+                </div>
+
+                <div class="role-block">
+                  <div class="role-heading">
+                    <div class="role-title-group">
+                      <h4>Research Assistant</h4>
+                    </div>
+                    <p class="role-date">Mar 2025 - Aug 2025 · Hybrid</p>
+                  </div>
+                  <p>
+                    Contributed to data collection, cleaning, and analysis for
+                    quiet-standing balance experiments, using MediaPipe Pose for
+                    skeletal landmark detection and center-of-mass estimation.
+                  </p>
+                  <p class="detail-line">
+                    Python / MediaPipe / Data Analysis / Balance Research
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="list-item experience-item">
+            <div class="item-copy">
+              <div class="experience-head">
+                <h3>Brainvire Infotech Inc.</h3>
+                <p class="experience-summary">
+                  11 mos · Ahmedabad, Gujarat, India · On-site
+                </p>
+              </div>
+
+              <div class="role-stack">
+                <div class="role-block">
+                  <div class="role-heading">
+                    <div class="role-title-group">
+                      <h4>Odoo Developer</h4>
+                      <p class="role-subtitle">Apprenticeship</p>
+                    </div>
+                    <p class="role-date">Jun 2023 - Dec 2023 · 7 mos</p>
+                  </div>
+                  <p>
+                    Worked as an Odoo Developer, building and customizing Odoo
+                    modules, implementing POS workflows, and shipping features
+                    with Python, ORM methods, and OWL JavaScript.
+                  </p>
+                  <p class="detail-line">Python / JavaScript / Odoo / OWL</p>
+                </div>
+
+                <div class="role-block">
+                  <div class="role-heading">
+                    <div class="role-title-group">
+                      <h4>Software Developer Intern</h4>
+                      <p class="role-subtitle">Internship</p>
+                    </div>
+                    <p class="role-date">Feb 2023 - May 2023 · 4 mos</p>
+                  </div>
+                  <p>
+                    Supported development tasks across JavaScript and
+                    Python-based workflows while building hands-on experience in
+                    software delivery and Odoo development.
+                  </p>
+                  <p class="detail-line">
+                    JavaScript / Python / Internship / Odoo
+                  </p>
+                </div>
+              </div>
+
+              <div class="inline-links experience-links">
                 <a
                   href="https://github.com/krushaalkalkani/odoo-projects"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  View Work
+                  Odoo Projects
                 </a>
               </div>
             </div>
@@ -141,7 +269,7 @@
                 aria-controls="project-01"
               >
                 <span class="project-tab-index">01</span>
-                <span class="project-tab-title">Predictive Analytics</span>
+                <span class="project-tab-title">Heart Disease Prediction</span>
               </button>
               <button
                 id="project-tab-02"
@@ -152,7 +280,7 @@
                 aria-controls="project-02"
               >
                 <span class="project-tab-index">02</span>
-                <span class="project-tab-title">Google Keep Clone</span>
+                <span class="project-tab-title">Predictive Analytics</span>
               </button>
               <button
                 id="project-tab-03"
@@ -163,7 +291,7 @@
                 aria-controls="project-03"
               >
                 <span class="project-tab-index">03</span>
-                <span class="project-tab-title">Todo List App</span>
+                <span class="project-tab-title">Google Keep Clone</span>
               </button>
               <button
                 id="project-tab-04"
@@ -174,7 +302,7 @@
                 aria-controls="project-04"
               >
                 <span class="project-tab-index">04</span>
-                <span class="project-tab-title">Heart Disease Prediction</span>
+                <span class="project-tab-title">Todo List App</span>
               </button>
             </div>
 
@@ -184,105 +312,6 @@
               role="tabpanel"
               aria-labelledby="project-tab-01"
             >
-              <div class="item-meta">
-                <p>01</p>
-              </div>
-
-              <div class="item-copy">
-                <h3>Predictive Analytics for Startups</h3>
-                <p>
-                  Built a multiple linear regression model to predict startup
-                  profits from R&amp;D, marketing, and administration data, then
-                  improved it through feature scaling and backward elimination.
-                </p>
-                <p class="detail-line">Python / Machine Learning / Data Analysis</p>
-                <div class="inline-links">
-                  <a
-                    href="https://github.com/krushaalkalkani/machine-learning"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GitHub
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="project-panel"
-              id="project-02"
-              role="tabpanel"
-              aria-labelledby="project-tab-02"
-            >
-              <div class="item-meta">
-                <p>02</p>
-              </div>
-
-              <div class="item-copy">
-                <h3>Google Keep Clone</h3>
-                <p>
-                  A responsive React notes app for creating, editing, deleting,
-                  and organizing notes with a clean and simple interface.
-                </p>
-                <p class="detail-line">React / JavaScript / CSS</p>
-                <div class="inline-links">
-                  <a
-                    href="https://github.com/krushaalkalkani/google-keep-clone"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GitHub
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="project-panel"
-              id="project-03"
-              role="tabpanel"
-              aria-labelledby="project-tab-03"
-            >
-              <div class="item-meta">
-                <p>03</p>
-              </div>
-
-              <div class="item-copy">
-                <h3>Todo List App</h3>
-                <p>
-                  A simple task manager to add, complete, and remove tasks with
-                  real-time updates and a straightforward layout.
-                </p>
-                <p class="detail-line">JavaScript / HTML / CSS</p>
-                <div class="inline-links">
-                  <a
-                    href="https://github.com/krushaalkalkani/todolist-app?tab=readme-ov-file"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GitHub
-                  </a>
-                  <a
-                    href="https://krushaalkalkani.github.io/todolist-app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Live Demo
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="project-panel"
-              id="project-04"
-              role="tabpanel"
-              aria-labelledby="project-tab-04"
-            >
-              <div class="item-meta">
-                <p>04</p>
-              </div>
-
               <div class="item-copy">
                 <h3>Heart Disease Prediction Web App</h3>
                 <p>
@@ -309,6 +338,89 @@
                 </div>
               </div>
             </div>
+
+            <div
+              class="project-panel"
+              id="project-02"
+              role="tabpanel"
+              aria-labelledby="project-tab-02"
+            >
+              <div class="item-copy">
+                <h3>Predictive Analytics for Startups</h3>
+                <p>
+                  Built a multiple linear regression model to predict startup
+                  profits from R&amp;D, marketing, and administration data, then
+                  improved it through feature scaling and backward elimination.
+                </p>
+                <p class="detail-line">Python / Machine Learning / Data Analysis</p>
+                <div class="inline-links">
+                  <a
+                    href="https://github.com/krushaalkalkani/machine-learning"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="project-panel"
+              id="project-03"
+              role="tabpanel"
+              aria-labelledby="project-tab-03"
+            >
+              <div class="item-copy">
+                <h3>Google Keep Clone</h3>
+                <p>
+                  A responsive React notes app for creating, editing, deleting,
+                  and organizing notes with a clean and simple interface.
+                </p>
+                <p class="detail-line">React / JavaScript / CSS</p>
+                <div class="inline-links">
+                  <a
+                    href="https://github.com/krushaalkalkani/google-keep-clone"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="project-panel"
+              id="project-04"
+              role="tabpanel"
+              aria-labelledby="project-tab-04"
+            >
+              <div class="item-copy">
+                <h3>Todo List App</h3>
+                <p>
+                  A simple task manager to add, complete, and remove tasks with
+                  real-time updates and a straightforward layout.
+                </p>
+                <p class="detail-line">JavaScript / HTML / CSS</p>
+                <div class="inline-links">
+                  <a
+                    href="https://github.com/krushaalkalkani/todolist-app?tab=readme-ov-file"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
+                  <a
+                    href="https://krushaalkalkani.github.io/todolist-app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live Demo
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -316,9 +428,47 @@
     </main>
 
     <script>
+      const themeToggle = document.getElementById("themeToggle");
+      const themeQuery = window.matchMedia("(prefers-color-scheme: light)");
+
+      const applyTheme = (theme) => {
+        document.body.dataset.theme = theme;
+        const isLight = theme === "light";
+
+        themeToggle.setAttribute("aria-pressed", String(isLight));
+        themeToggle.setAttribute(
+          "aria-label",
+          isLight ? "Switch to dark mode" : "Switch to light mode"
+        );
+      };
+
+      const storedTheme = window.localStorage.getItem("theme");
+      applyTheme(storedTheme || (themeQuery.matches ? "light" : "dark"));
+
+      themeToggle.addEventListener("click", () => {
+        const nextTheme =
+          document.body.dataset.theme === "light" ? "dark" : "light";
+
+        window.localStorage.setItem("theme", nextTheme);
+        applyTheme(nextTheme);
+      });
+
+      const syncSystemTheme = (event) => {
+        if (window.localStorage.getItem("theme")) {
+          return;
+        }
+
+        applyTheme(event.matches ? "light" : "dark");
+      };
+
+      if (themeQuery.addEventListener) {
+        themeQuery.addEventListener("change", syncSystemTheme);
+      } else if (themeQuery.addListener) {
+        themeQuery.addListener(syncSystemTheme);
+      }
+
       const sectionIds = ["about", "work", "projects"];
       const views = document.querySelectorAll(".content-view");
-      const brandLink = document.querySelector(".brand");
       const navLinks = document.querySelectorAll(".side-link");
       const projectTabs = document.querySelectorAll(".project-tab");
       const projectPanels = document.querySelectorAll(".project-panel");
@@ -364,11 +514,6 @@
           window.history.pushState(null, "", nextHash);
         }
       };
-
-      brandLink.addEventListener("click", (event) => {
-        event.preventDefault();
-        changeView("about");
-      });
 
       navLinks.forEach((link) => {
         link.addEventListener("click", (event) => {

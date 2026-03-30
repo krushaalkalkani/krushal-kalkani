@@ -8,6 +8,9 @@
   --line: rgba(255, 255, 255, 0.07);
   --line-strong: rgba(255, 255, 255, 0.12);
   --accent: #dbe6f7;
+  --underline: rgba(255, 255, 255, 0.18);
+  --underline-strong: rgba(255, 255, 255, 0.4);
+  --hover-surface: rgba(255, 255, 255, 0.02);
   --max-shell: 980px;
   --transition: 180ms ease;
 }
@@ -33,6 +36,24 @@ body {
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+
+body[data-theme="light"] {
+  --bg: #f4efe6;
+  --surface: #ffffff;
+  --surface-soft: #e9e3d9;
+  --text: #171a20;
+  --text-soft: #4c5562;
+  --text-faint: #7a8390;
+  --line: rgba(23, 26, 32, 0.08);
+  --line-strong: rgba(23, 26, 32, 0.14);
+  --accent: #171a20;
+  --underline: rgba(23, 26, 32, 0.18);
+  --underline-strong: rgba(23, 26, 32, 0.38);
+  --hover-surface: rgba(23, 26, 32, 0.04);
 }
 
 img {
@@ -49,30 +70,23 @@ a:focus-visible {
   outline-offset: 4px;
 }
 
-.brand {
-  color: var(--text);
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-
 .page-shell {
   width: min(100%, var(--max-shell));
   margin: 0 auto;
-  padding: 24px 24px 60px;
+  padding: 32px 24px 52px;
   display: grid;
   grid-template-columns: 160px minmax(0, 1fr);
-  gap: 38px;
+  gap: 32px;
 }
 
 .side-nav {
   position: sticky;
-  top: 24px;
-  height: fit-content;
+  top: 32px;
+  min-height: calc(100vh - 48px);
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
+  padding-top: 10px;
 }
 
 .side-links {
@@ -93,9 +107,65 @@ a:focus-visible {
   color: var(--text);
 }
 
+.side-tools {
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition),
+    transform var(--transition);
+}
+
+.theme-toggle:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-1px);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.theme-icon {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.theme-icon-sun {
+  display: none;
+}
+
+body[data-theme="light"] .theme-icon-sun {
+  display: block;
+}
+
+body[data-theme="light"] .theme-icon-moon {
+  display: none;
+}
+
 .content-column {
   min-width: 0;
   min-height: calc(100vh - 48px);
+  padding-top: 10px;
 }
 
 .content-view[hidden] {
@@ -103,10 +173,10 @@ a:focus-visible {
 }
 
 .hero {
-  padding: 20px 0 62px;
+  padding: 0 0 40px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 232px;
-  gap: 28px;
+  gap: 22px;
   align-items: start;
 }
 
@@ -119,25 +189,16 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
-.hero h1 {
-  margin-bottom: 14px;
-  color: var(--text);
-  font-size: clamp(2.25rem, 5.2vw, 3.5rem);
-  font-weight: 600;
-  line-height: 1.04;
-  letter-spacing: -0.05em;
-}
-
 .lead,
 .hero-text,
 .item-copy p,
 .contact-line {
   max-width: 54ch;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   color: var(--text-soft);
-  font-size: clamp(0.98rem, 1.35vw, 1.02rem);
+  font-size: clamp(0.92rem, 1.05vw, 0.96rem);
   font-weight: 400;
-  line-height: 1.8;
+  line-height: 1.72;
 }
 
 .lead {
@@ -148,12 +209,12 @@ a:focus-visible {
   color: var(--text-soft);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
-  text-decoration-color: rgba(255, 255, 255, 0.18);
+  text-decoration-color: var(--underline);
 }
 
 .contact-line a:hover {
   color: var(--text);
-  text-decoration-color: rgba(255, 255, 255, 0.4);
+  text-decoration-color: var(--underline-strong);
 }
 
 .inline-links {
@@ -167,7 +228,7 @@ a:focus-visible {
 .inline-links a {
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
-  text-decoration-color: rgba(255, 255, 255, 0.18);
+  text-decoration-color: var(--underline);
   transition:
     color var(--transition),
     text-decoration-color var(--transition);
@@ -175,7 +236,7 @@ a:focus-visible {
 
 .inline-links a:hover {
   color: var(--text);
-  text-decoration-color: rgba(255, 255, 255, 0.4);
+  text-decoration-color: var(--underline-strong);
 }
 
 .hero-media {
@@ -201,11 +262,11 @@ a:focus-visible {
 }
 
 .section {
-  padding: 0 0 56px;
+  padding: 0 0 44px;
 }
 
 .section-heading-wrap {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .section-heading-wrap h2 {
@@ -228,7 +289,7 @@ a:focus-visible {
 .project-tabs {
   display: grid;
   grid-template-columns: 210px minmax(0, 1fr);
-  gap: 24px;
+  gap: 18px;
 }
 
 .project-tab-list {
@@ -258,7 +319,7 @@ a:focus-visible {
 .project-tab:hover {
   color: var(--text);
   border-color: var(--line);
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--hover-surface);
 }
 
 .project-tab.active {
@@ -280,8 +341,8 @@ a:focus-visible {
 
 .project-panel {
   display: none;
-  grid-template-columns: 84px minmax(0, 1fr);
-  gap: 22px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
   padding: 4px 0;
 }
 
@@ -292,8 +353,8 @@ a:focus-visible {
 .list-item {
   display: grid;
   grid-template-columns: 84px minmax(0, 1fr);
-  gap: 22px;
-  padding: 18px 0;
+  gap: 18px;
+  padding: 14px 0;
 }
 
 .list-item + .list-item {
@@ -315,6 +376,80 @@ a:focus-visible {
   letter-spacing: -0.03em;
 }
 
+.experience-item {
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.experience-item .item-copy {
+  padding: 0;
+}
+
+.experience-head {
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.experience-head h3 {
+  margin-bottom: 4px;
+}
+
+.experience-summary {
+  margin-bottom: 0;
+  color: var(--text-faint);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.role-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.role-block {
+  padding-left: 14px;
+  border-left: 1px solid var(--line);
+}
+
+.role-block + .role-block {
+  padding-top: 10px;
+}
+
+.role-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 6px;
+}
+
+.role-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.role-heading h4 {
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.role-subtitle,
+.role-date {
+  margin-bottom: 0;
+  color: var(--text-faint);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.experience-links {
+  margin-top: 10px;
+  padding-left: 14px;
+}
+
 .detail-line {
   margin-bottom: 12px;
   color: var(--text-faint);
@@ -325,13 +460,16 @@ a:focus-visible {
   .page-shell {
     grid-template-columns: 1fr;
     gap: 24px;
+    padding-top: 28px;
     padding-left: 20px;
     padding-right: 20px;
   }
 
   .side-nav {
     position: static;
+    min-height: 0;
     gap: 12px;
+    padding-top: 6px;
   }
 
   .side-links {
@@ -340,18 +478,28 @@ a:focus-visible {
     gap: 10px 16px;
   }
 
+  .side-tools {
+    margin-top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
   .hero {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 20px;
   }
 
   .hero-media {
     max-width: 220px;
+    margin: 0 auto;
+    align-items: center;
+    text-align: center;
   }
 
   .project-tabs {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 14px;
   }
 
   .project-tab-list {
@@ -367,13 +515,13 @@ a:focus-visible {
 
 @media (max-width: 640px) {
   .page-shell {
-    padding-top: 18px;
-    padding-bottom: 48px;
+    padding-top: 24px;
+    padding-bottom: 40px;
   }
 
   .hero {
-    padding-top: 20px;
-    padding-bottom: 52px;
+    padding-top: 0;
+    padding-bottom: 32px;
   }
 
   .lead,
@@ -381,7 +529,7 @@ a:focus-visible {
   .item-copy p,
   .contact-line,
   .inline-links {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .list-item,
@@ -392,6 +540,18 @@ a:focus-visible {
 
   .item-copy h3 {
     font-size: 1.16rem;
+  }
+
+  .experience-head {
+    margin-bottom: 16px;
+  }
+
+  .experience-item .item-copy {
+    padding: 16px;
+  }
+
+  .role-heading h4 {
+    font-size: 0.95rem;
   }
 
   .project-tab {
