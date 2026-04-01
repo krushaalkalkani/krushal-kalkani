@@ -91,8 +91,14 @@
             </p>
             <p class="contact-line">
               For opportunities or collaboration, reach me at
-              <a href="mailto:hello@krushalkalkani.com"
-                >hello@krushalkalkani.com</a
+              <a
+                href="#about"
+                class="obfuscated-email"
+                data-user="hello"
+                data-domain-left="krushal"
+                data-domain-right="kalkani"
+                data-tld="com"
+                >hello[at]krushal.kalkani.com</a
               >.
             </p>
             <div class="inline-links">
@@ -400,6 +406,17 @@
         themeQuery.addEventListener("change", syncSystemTheme);
       } else if (themeQuery.addListener) {
         themeQuery.addListener(syncSystemTheme);
+      }
+
+      const obfuscatedEmail = document.querySelector(".obfuscated-email");
+
+      if (obfuscatedEmail) {
+        obfuscatedEmail.addEventListener("click", (event) => {
+          event.preventDefault();
+          const { user, domainLeft, domainRight, tld } = obfuscatedEmail.dataset;
+          const email = `${user}@${domainLeft}${domainRight}.${tld}`;
+          window.location.href = `mailto:${email}`;
+        });
       }
 
       const sectionIds = ["about", "work", "projects"];
