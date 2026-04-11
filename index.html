@@ -98,7 +98,7 @@
                 data-domain-left="krushal"
                 data-domain-right="kalkani"
                 data-tld="com"
-                >hello[at]krushal.kalkani.com</a
+                >hello[at]krushalkalkani.com</a
               >.
             </p>
             <div class="inline-links">
@@ -177,9 +177,9 @@
                     <p class="role-date">Aug 2025 - Present · On-site</p>
                   </div>
                   <p>
-                    Assist students, manage daily
-                    administrative responsibilities, and support housing
-                    operations with clear communication and professionalism.
+                    Assist students, manage daily administrative
+                    responsibilities, and support housing operations with clear
+                    communication and professionalism.
                   </p>
                   <p class="detail-line">
                     Student Support / Operations / Communication
@@ -454,7 +454,8 @@
       if (obfuscatedEmail) {
         obfuscatedEmail.addEventListener("click", (event) => {
           event.preventDefault();
-          const { user, domainLeft, domainRight, tld } = obfuscatedEmail.dataset;
+          const { user, domainLeft, domainRight, tld } =
+            obfuscatedEmail.dataset;
           const email = `${user}@${domainLeft}${domainRight}.${tld}`;
           window.location.href = `mailto:${email}`;
         });
