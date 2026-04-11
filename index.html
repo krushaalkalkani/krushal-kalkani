@@ -178,7 +178,7 @@
                   </div>
                   <p>
                     Assist students, manage daily
-                    administrativeresponsibilities, and support housing
+                    administrative responsibilities, and support housing
                     operations with clear communication and professionalism.
                   </p>
                   <p class="detail-line">
@@ -269,6 +269,7 @@
           <div class="project-tabs">
             <div class="project-tab-list" role="tablist" aria-label="Projects">
               <button
+                type="button"
                 id="project-tab-01"
                 class="project-tab active"
                 data-target="project-01"
@@ -280,6 +281,7 @@
                 <span class="project-tab-title">Heart Disease Prediction</span>
               </button>
               <button
+                type="button"
                 id="project-tab-02"
                 class="project-tab"
                 data-target="project-02"
@@ -288,9 +290,10 @@
                 aria-controls="project-02"
               >
                 <span class="project-tab-index">02</span>
-                <span class="project-tab-title">Predictive Analytics</span>
+                <span class="project-tab-title">Smart Resume Analyzer</span>
               </button>
               <button
+                type="button"
                 id="project-tab-03"
                 class="project-tab"
                 data-target="project-03"
@@ -298,7 +301,9 @@
                 aria-selected="false"
                 aria-controls="project-03"
               >
-               
+                <span class="project-tab-index">03</span>
+                <span class="project-tab-title">Predictive Analytics</span>
+              </button>
             </div>
 
             <div
@@ -341,6 +346,42 @@
               id="project-02"
               role="tabpanel"
               aria-labelledby="project-tab-02"
+            >
+              <div class="item-copy">
+                <h3>Smart Resume Analyzer</h3>
+                <p>
+                  Built an end-to-end NLP pipeline on 2,484 resumes across 24
+                  job categories, applied TF-IDF vectorization, trained
+                  multi-class classifiers, and shipped the final app with
+                  Streamlit to Hugging Face Spaces.
+                </p>
+                <p class="detail-line">
+                  Python / Scikit-learn / TF-IDF / Streamlit
+                </p>
+                <div class="inline-links">
+                  <a
+                    href="https://github.com/krushaalkalkani/resume-analyzer"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
+                  <a
+                    href="https://huggingface.co/spaces/krushalkalkani/resume-analyzer"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="project-panel"
+              id="project-03"
+              role="tabpanel"
+              aria-labelledby="project-tab-03"
             >
               <div class="item-copy">
                 <h3>Predictive Analytics for Startups</h3>
@@ -478,7 +519,11 @@
       const initialView = window.location.hash.slice(1) || sectionIds[0];
       changeView(initialView, true);
       window.addEventListener("hashchange", () => {
-        showView(window.location.hash.slice(1) || sectionIds[0]);
+        const rawId = window.location.hash.slice(1) || sectionIds[0];
+        const resolvedId = showView(rawId);
+        if (window.location.hash !== `#${resolvedId}`) {
+          window.history.replaceState(null, "", `#${resolvedId}`);
+        }
       });
 
       projectTabs.forEach((tab) => {
