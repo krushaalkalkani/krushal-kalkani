@@ -415,6 +415,9 @@
 
       const applyTheme = (theme) => {
         document.body.dataset.theme = theme;
+        if (!themeToggle) {
+          return;
+        }
         const isLight = theme === "light";
 
         themeToggle.setAttribute("aria-pressed", String(isLight));
@@ -427,7 +430,7 @@
       const storedTheme = window.localStorage.getItem("theme");
       applyTheme(storedTheme || (themeQuery.matches ? "light" : "dark"));
 
-      themeToggle.addEventListener("click", () => {
+      themeToggle?.addEventListener("click", () => {
         const nextTheme =
           document.body.dataset.theme === "light" ? "dark" : "light";
 
@@ -452,13 +455,9 @@
       const obfuscatedEmail = document.querySelector(".obfuscated-email");
 
       if (obfuscatedEmail) {
-        obfuscatedEmail.addEventListener("click", (event) => {
-          event.preventDefault();
-          const { user, domainLeft, domainRight, tld } =
-            obfuscatedEmail.dataset;
-          const email = `${user}@${domainLeft}${domainRight}.${tld}`;
-          window.location.href = `mailto:${email}`;
-        });
+        const { user, domainLeft, domainRight, tld } = obfuscatedEmail.dataset;
+        const email = `${user}@${domainLeft}${domainRight}.${tld}`;
+        obfuscatedEmail.href = `mailto:${email}`;
       }
 
       const sectionIds = ["about", "work", "projects"];
