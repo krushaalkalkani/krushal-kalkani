@@ -30,6 +30,7 @@
           <a href="#about" class="side-link active">About</a>
           <a href="#work" class="side-link">Experience</a>
           <a href="#projects" class="side-link">Projects</a>
+          <a href="ml-roadmap.html" class="side-link">ML Roadmap</a>
         </nav>
 
         <div class="side-tools">
@@ -462,7 +463,10 @@
 
       const sectionIds = ["about", "work", "projects"];
       const views = document.querySelectorAll(".content-view");
-      const navLinks = document.querySelectorAll(".side-link");
+      const allSideLinks = document.querySelectorAll(".side-link");
+      const navLinks = Array.from(allSideLinks).filter((link) =>
+        (link.getAttribute("href") || "").startsWith("#"),
+      );
       const projectTabs = document.querySelectorAll(".project-tab");
       const projectPanels = document.querySelectorAll(".project-panel");
 
