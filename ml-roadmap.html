@@ -39,6 +39,14 @@
           <a href="ai-skill.html" class="side-link">Agentic AI</a>
         </nav>
 
+        <div class="nav-agent" aria-hidden="true">
+          <span class="nav-agent__helmet"></span>
+          <span class="nav-agent__pack"></span>
+          <span class="nav-agent__body"></span>
+          <span class="nav-agent__foot nav-agent__foot--left"></span>
+          <span class="nav-agent__foot nav-agent__foot--right"></span>
+        </div>
+
         <div class="side-tools">
           <button
             id="themeToggle"
@@ -547,7 +555,6 @@
     <script>
       (function () {
         const themeToggle = document.getElementById("themeToggle");
-        const themeQuery = window.matchMedia("(prefers-color-scheme: light)");
 
         const applyTheme = (theme) => {
           document.body.dataset.theme = theme;
@@ -563,7 +570,7 @@
         };
 
         const storedTheme = window.localStorage.getItem("theme");
-        applyTheme(storedTheme || (themeQuery.matches ? "light" : "dark"));
+        applyTheme(storedTheme || "dark");
 
         themeToggle?.addEventListener("click", () => {
           const nextTheme =
@@ -571,19 +578,88 @@
           window.localStorage.setItem("theme", nextTheme);
           applyTheme(nextTheme);
         });
+      })();
 
-        const syncSystemTheme = (event) => {
-          if (window.localStorage.getItem("theme")) {
-            return;
-          }
-          applyTheme(event.matches ? "light" : "dark");
+      (function () {
+        const nav = document.querySelector(".side-nav");
+        const agent = nav?.querySelector(".nav-agent");
+        const links = nav ? Array.from(nav.querySelectorAll(".side-link")) : [];
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        let lastX = null;
+        let walkTimer;
+        let ticking = false;
+
+        if (!nav || !agent || !links.length) {
+          return;
+        }
+
+        const getCenter = (link) => {
+          const navRect = nav.getBoundingClientRect();
+          const linkRect = link.getBoundingClientRect();
+          return linkRect.left - navRect.left + linkRect.width / 2;
         };
 
-        if (themeQuery.addEventListener) {
-          themeQuery.addEventListener("change", syncSystemTheme);
-        } else if (themeQuery.addListener) {
-          themeQuery.addListener(syncSystemTheme);
-        }
+        const setAgentX = (x, walking = true) => {
+          if (Number.isNaN(x)) {
+            return;
+          }
+
+          if (lastX !== null && Math.abs(x - lastX) > 1) {
+            nav.style.setProperty("--agent-facing", x >= lastX ? "1" : "-1");
+          }
+
+          nav.style.setProperty("--agent-x", `${Math.round(x)}px`);
+          lastX = x;
+
+          if (!reduceMotion && walking) {
+            agent.classList.add("is-walking");
+            window.clearTimeout(walkTimer);
+            walkTimer = window.setTimeout(() => {
+              agent.classList.remove("is-walking");
+            }, 520);
+          }
+        };
+
+        const moveToActive = () => {
+          const active =
+            links.find(
+              (link) =>
+                link.classList.contains("active") ||
+                link.getAttribute("aria-current") === "page",
+            ) || links[0];
+          setAgentX(getCenter(active));
+        };
+
+        const moveWithScroll = () => {
+          const scroller = document.scrollingElement || document.documentElement;
+          const maxScroll = scroller.scrollHeight - innerHeight;
+          if (maxScroll <= 0) {
+            moveToActive();
+            return;
+          }
+
+          const first = getCenter(links[0]);
+          const last = getCenter(links[links.length - 1]);
+          const progress = Math.min(Math.max(scroller.scrollTop / maxScroll, 0), 1);
+          setAgentX(first + (last - first) * progress);
+        };
+
+        const requestScrollMove = () => {
+          if (ticking) {
+            return;
+          }
+          ticking = true;
+          requestAnimationFrame(() => {
+            moveWithScroll();
+            ticking = false;
+          });
+        };
+
+        window.addEventListener("resize", moveToActive);
+        window.addEventListener("scroll", requestScrollMove, { passive: true });
+        moveToActive();
       })();
 
       (function () {
