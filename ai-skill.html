@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      document.documentElement.classList.add("has-js");
+    </script>
+    <meta
+      name="description"
+      content="Agentic AI Builder — a reusable Cursor/Codex skill by Krushal Kalkani that turns vague agent ideas into MVP-first plans with tools, RAG, reflection, evals, traces, and portfolio-ready docs."
+    />
+    <meta
+      property="og:title"
+      content="Agentic AI Builder Skill — Krushal Kalkani"
+    />
+    <meta
+      property="og:description"
+      content="A practical skill for turning agent ideas into shippable MVPs — with evals, traces, and clear architecture decisions."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="./Images/favicon.png" />
+    <title>Agentic AI Builder | Krushal Kalkani</title>
+  </head>
+
+  <body>
+    <main class="page-shell">
+      <aside class="side-nav">
+        <nav class="side-links" aria-label="Sections">
+          <a href="index.html#about" class="side-link">About</a>
+          <a href="index.html#work" class="side-link">Experience</a>
+          <a href="index.html#projects" class="side-link">Projects</a>
+          <a href="ml-roadmap.html" class="side-link">ML Roadmap</a>
+          <a href="ai-skill.html" class="side-link active" aria-current="page"
+            >Agentic AI</a
+          >
+        </nav>
+
+        <div class="side-tools">
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch to light mode"
+            aria-pressed="false"
+            title="Toggle theme"
+          >
+            <svg
+              class="theme-icon theme-icon-moon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7.2 7.2 0 0 0 9.8 9.8Z" />
+            </svg>
+            <svg
+              class="theme-icon theme-icon-sun"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"
+              />
+            </svg>
+          </button>
+        </div>
+      </aside>
+
+      <div class="content-column">
+        <section class="roadmap-hero" aria-labelledby="skill-title">
+          <h1 id="skill-title" data-reveal>Agentic AI Builder</h1>
+          <p class="phase-subtitle skill-lead" data-reveal>
+            A reusable skill that turns vague agent ideas into MVP-first,
+            production-minded plans — with workflow design, tool and RAG
+            decisions, reflection, evals, traces, and portfolio-ready docs.
+          </p>
+
+          <div class="skill-tags" aria-label="Topics" data-reveal>
+            <span class="skill-tag">Agentic AI</span>
+            <span class="skill-tag">Tools &amp; MCP</span>
+            <span class="skill-tag">RAG</span>
+            <span class="skill-tag">Evals &amp; Traces</span>
+            <span class="skill-tag">Python</span>
+          </div>
+
+          <div class="skill-cta" data-reveal>
+            <a
+              class="course-action"
+              href="https://github.com/krushaalkalkani/agentic-ai-skill"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View on GitHub <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="phase" aria-labelledby="why-title">
+          <div class="phase-header" data-reveal>
+            <p class="phase-eyebrow">Overview</p>
+            <h2 class="phase-title" id="why-title">What it is</h2>
+            <p class="phase-subtitle">
+              Most "build me an agent" requests jump straight to frameworks and
+              tool-stacking. This skill enforces a simpler, MVP-first path:
+              define the problem, build a direct baseline, and add agent
+              behavior (tools, RAG, reflection, planning, multi-agent) only when
+              the task actually needs it.
+            </p>
+            <div class="phase-accent" aria-hidden="true"></div>
+          </div>
+
+          <aside class="callout" aria-label="Core philosophy" data-reveal>
+            <p class="callout-label">
+              <span aria-hidden="true">🧭</span> Core philosophy
+            </p>
+            <p class="callout-text">
+              Start with the smallest useful MVP. Add tools only for external
+              data or actions. Add RAG only when answers must be grounded in
+              documents. Use evals, traces, and error analysis for anything
+              serious — and don't overbuild.
+            </p>
+          </aside>
+        </section>
+
+        <section class="phase" aria-labelledby="how-title">
+          <div class="phase-header" data-reveal>
+            <p class="phase-eyebrow">How it works</p>
+            <h2 class="phase-title" id="how-title">
+              The build flow, in five phases
+            </h2>
+            <p class="phase-subtitle">
+              The skill walks every project through a 24-point checklist,
+              grouped into five phases — from defining the problem to shipping a
+              resume-ready demo.
+            </p>
+            <div class="phase-accent" aria-hidden="true"></div>
+          </div>
+
+          <ol class="course-list" role="list">
+            <li class="course-card skill-step" data-reveal>
+              <div class="course-body">
+                <div class="course-title-row">
+                  <h3 class="course-title">1 · Define</h3>
+                  <span class="course-badge is-beginner">Scope</span>
+                </div>
+                <p class="course-why">
+                  Problem, user, input, output. Lock down what success actually
+                  looks like before writing a line of code.
+                </p>
+              </div>
+            </li>
+
+            <li class="course-card skill-step" data-reveal>
+              <div class="course-body">
+                <div class="course-title-row">
+                  <h3 class="course-title">2 · Baseline</h3>
+                  <span class="course-badge is-beginner">Simplest path</span>
+                </div>
+                <p class="course-why">
+                  Build a direct, non-agent workflow first. If a single LLM call
+                  solves it, you're done — no agent needed.
+                </p>
+              </div>
+            </li>
+
+            <li class="course-card skill-step" data-reveal>
+              <div class="course-body">
+                <div class="course-title-row">
+                  <h3 class="course-title">3 · Agentize</h3>
+                  <span class="course-badge is-intermediate">Add capability</span>
+                </div>
+                <p class="course-why">
+                  Layer in tools, RAG, code execution, reflection, and planning
+                  — but only the ones the task genuinely requires.
+                </p>
+              </div>
+            </li>
+
+            <li class="course-card skill-step" data-reveal>
+              <div class="course-body">
+                <div class="course-title-row">
+                  <h3 class="course-title">4 · Validate</h3>
+                  <span class="course-badge is-intermediate">Prove it works</span>
+                </div>
+                <p class="course-why">
+                  Evals, trace logging, error analysis, and component-level
+                  checks to find and fix the weakest part of the system.
+                </p>
+              </div>
+            </li>
+
+            <li class="course-card skill-step" data-reveal>
+              <div class="course-body">
+                <div class="course-title-row">
+                  <h3 class="course-title">5 · Ship</h3>
+                  <span class="course-badge is-beginner">Deliver</span>
+                </div>
+                <p class="course-why">
+                  Track latency and cost, then produce an MVP build plan, a demo
+                  script, and a resume-ready bullet.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <section class="phase" aria-labelledby="decide-title">
+          <div class="phase-header" data-reveal>
+            <p class="phase-eyebrow">Decision logic</p>
+            <h2 class="phase-title" id="decide-title">
+              When to add what
+            </h2>
+            <p class="phase-subtitle">
+              The skill's most useful job is saying "no." Each capability is
+              gated behind a clear question, so projects stay as simple as the
+              problem allows.
+            </p>
+            <div class="phase-accent" aria-hidden="true"></div>
+          </div>
+
+          <div class="skill-flow" role="list">
+            <div class="skill-flow-item" role="listitem" data-reveal>
+              <p class="skill-flow-q">Needs live or private data?</p>
+              <p class="skill-flow-a">→ Add tools / MCP</p>
+            </div>
+            <div class="skill-flow-item" role="listitem" data-reveal>
+              <p class="skill-flow-q">Answer must cite documents?</p>
+              <p class="skill-flow-a">→ Add RAG</p>
+            </div>
+            <div class="skill-flow-item" role="listitem" data-reveal>
+              <p class="skill-flow-q">Data, math, charts, tests?</p>
+              <p class="skill-flow-a">→ Add code execution</p>
+            </div>
+            <div class="skill-flow-item" role="listitem" data-reveal>
+              <p class="skill-flow-q">Output needs review?</p>
+              <p class="skill-flow-a">→ Add reflection</p>
+            </div>
+            <div class="skill-flow-item" role="listitem" data-reveal>
+              <p class="skill-flow-q">Order of steps matters?</p>
+              <p class="skill-flow-a">→ Add planning</p>
+            </div>
+            <div class="skill-flow-item" role="listitem" data-reveal>
+              <p class="skill-flow-q">Distinct roles clearly help?</p>
+              <p class="skill-flow-a">→ Go multi-agent</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="phase" aria-labelledby="inside-title">
+          <div class="phase-header" data-reveal>
+            <p class="phase-eyebrow">What's inside</p>
+            <h2 class="phase-title" id="inside-title">Repository structure</h2>
+            <p class="phase-subtitle">
+              It's a real engineering artifact, not just a prompt — with
+              reference notes, reusable templates, and a runnable eval skeleton.
+            </p>
+            <div class="phase-accent" aria-hidden="true"></div>
+          </div>
+
+          <pre class="skill-tree" aria-label="Repository structure" data-reveal><code>agentic-ai-builder-skill/
+├─ SKILL.md                  ← main skill instructions + checklist
+├─ references/               ← deeper notes on each pattern
+│  ├─ AGENTIC_AI_BLUEPRINT.md
+│  ├─ TOOLS_CODE_EXECUTION_MCP.md
+│  ├─ REFLECTION_AND_EXTERNAL_FEEDBACK.md
+│  ├─ PLANNING_AND_MULTI_AGENT.md
+│  └─ EVALS_TRACES_ERROR_ANALYSIS.md
+├─ templates/
+│  ├─ PROJECT_DESIGN_TEMPLATE.md
+│  └─ PROMPT_TEMPLATES.md
+└─ scripts/
+   └─ eval_skeleton.py       ← runnable, stdlib-only eval runner</code></pre>
+        </section>
+
+        <section class="phase" aria-labelledby="example-title">
+          <div class="phase-header" data-reveal>
+            <p class="phase-eyebrow">In practice</p>
+            <h2 class="phase-title" id="example-title">Example walkthrough</h2>
+            <p class="phase-subtitle">
+              One prompt turns a vague idea into a structured, buildable design.
+            </p>
+            <div class="phase-accent" aria-hidden="true"></div>
+          </div>
+
+          <pre class="skill-snippet" aria-label="Example prompt" data-reveal><code>Use the Agentic AI Builder skill.
+
+I want a research assistant that searches the web,
+summarizes sources, reflects on hallucination risk,
+and produces cited reports.
+
+Design the MVP, workflow, tools, evals, and file structure.</code></pre>
+
+          <aside class="callout" aria-label="What you get back" data-reveal>
+            <p class="callout-label">
+              <span aria-hidden="true">📦</span> What you get back
+            </p>
+            <p class="callout-text">
+              A 24-point design: MVP definition → web-search tool → reflection
+              step for hallucination checks → eval cases with a trace log → the
+              smallest-fix loop → a file structure and a resume-ready bullet.
+            </p>
+          </aside>
+        </section>
+
+        <footer class="roadmap-footer">
+          <p>
+            Built and maintained by Krushal Kalkani. Used to scaffold my own
+            agentic projects, experiments, and portfolio work.
+          </p>
+          <div class="share-row">
+            <a
+              class="share-button"
+              href="https://github.com/krushaalkalkani/agentic-ai-skill"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View the Agentic AI Builder skill on GitHub"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.93c.575.106.785-.25.785-.556 0-.275-.01-1.003-.015-1.97-3.197.695-3.872-1.54-3.872-1.54-.523-1.33-1.277-1.684-1.277-1.684-1.044-.714.08-.7.08-.7 1.155.082 1.763 1.187 1.763 1.187 1.026 1.758 2.693 1.25 3.35.956.103-.744.402-1.25.731-1.538-2.553-.29-5.238-1.277-5.238-5.683 0-1.255.448-2.282 1.184-3.086-.119-.29-.513-1.46.112-3.044 0 0 .966-.31 3.166 1.178a10.98 10.98 0 0 1 2.882-.388c.978.004 1.963.132 2.883.388 2.198-1.488 3.163-1.178 3.163-1.178.626 1.584.232 2.754.114 3.044.737.804 1.182 1.831 1.182 3.086 0 4.417-2.69 5.39-5.252 5.674.413.356.78 1.057.78 2.131 0 1.54-.014 2.78-.014 3.158 0 .309.207.668.79.555A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"
+                />
+              </svg>
+              View on GitHub
+            </a>
+          </div>
+          <p>
+            <a class="back-link" href="index.html"
+              >← Back to krushalkalkani.com</a
+            >
+          </p>
+        </footer>
+      </div>
+    </main>
+
+    <script>
+      (function () {
+        const themeToggle = document.getElementById("themeToggle");
+        const themeQuery = window.matchMedia("(prefers-color-scheme: light)");
+
+        const applyTheme = (theme) => {
+          document.body.dataset.theme = theme;
+          if (!themeToggle) {
+            return;
+          }
+          const isLight = theme === "light";
+          themeToggle.setAttribute("aria-pressed", String(isLight));
+          themeToggle.setAttribute(
+            "aria-label",
+            isLight ? "Switch to dark mode" : "Switch to light mode",
+          );
+        };
+
+        const storedTheme = window.localStorage.getItem("theme");
+        applyTheme(storedTheme || (themeQuery.matches ? "light" : "dark"));
+
+        themeToggle?.addEventListener("click", () => {
+          const nextTheme =
+            document.body.dataset.theme === "light" ? "dark" : "light";
+          window.localStorage.setItem("theme", nextTheme);
+          applyTheme(nextTheme);
+        });
+
+        const syncSystemTheme = (event) => {
+          if (window.localStorage.getItem("theme")) {
+            return;
+          }
+          applyTheme(event.matches ? "light" : "dark");
+        };
+
+        if (themeQuery.addEventListener) {
+          themeQuery.addEventListener("change", syncSystemTheme);
+        } else if (themeQuery.addListener) {
+          themeQuery.addListener(syncSystemTheme);
+        }
+      })();
+
+      (function () {
+        const revealEls = document.querySelectorAll("[data-reveal]");
+        if (!revealEls.length) {
+          return;
+        }
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        if (reduceMotion || !("IntersectionObserver" in window)) {
+          revealEls.forEach((el) => el.classList.add("in-view"));
+          return;
+        }
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+        );
+        revealEls.forEach((el) => observer.observe(el));
+      })();
+    </script>
+  </body>
+</html>

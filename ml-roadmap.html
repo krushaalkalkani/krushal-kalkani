@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      document.documentElement.classList.add("has-js");
+    </script>
     <meta
       name="description"
       content="ML Engineer Roadmap — the exact learning path Krushal Kalkani follows to become a Machine Learning Engineer. 9 curated free DeepLearning.AI courses, sequenced for what the industry hires for in 2025–2026."
@@ -33,6 +36,7 @@
           <a href="ml-roadmap.html" class="side-link active" aria-current="page"
             >ML Roadmap</a
           >
+          <a href="ai-skill.html" class="side-link">Agentic AI</a>
         </nav>
 
         <div class="side-tools">
@@ -67,12 +71,12 @@
 
       <div class="content-column">
         <section class="roadmap-hero" aria-labelledby="roadmap-title">
-          <span class="roadmap-badge">📍 Updated May 2026</span>
-          <h1 id="roadmap-title">ML Engineer Roadmap</h1>
+          <span class="roadmap-badge" data-reveal>📍 Updated May 2026</span>
+          <h1 id="roadmap-title" data-reveal>ML Engineer Roadmap</h1>
         </section>
 
         <section class="phase" aria-labelledby="phase-1-title">
-          <div class="phase-header">
+          <div class="phase-header" data-reveal>
             <p class="phase-eyebrow">Phase 1</p>
             <h2 class="phase-title" id="phase-1-title">Foundation</h2>
             <p class="phase-subtitle">
@@ -83,7 +87,7 @@
           </div>
 
           <ol class="course-list" role="list">
-            <li class="course-card">
+            <li class="course-card" data-reveal>
               <div class="course-body">
                 <div class="course-title-row">
                   <h3 class="course-title">Machine Learning Specialization</h3>
@@ -111,7 +115,7 @@
               </a>
             </li>
 
-            <li class="course-card">
+            <li class="course-card" data-reveal>
               <div class="course-body">
                 <div class="course-title-row">
                   <h3 class="course-title">Deep Learning Specialization</h3>
@@ -139,7 +143,7 @@
         </section>
 
         <section class="phase" aria-labelledby="phase-2-title">
-          <div class="phase-header">
+          <div class="phase-header" data-reveal>
             <p class="phase-eyebrow">Phase 2</p>
             <h2 class="phase-title" id="phase-2-title">LLM &amp; GenAI Core</h2>
             <p class="phase-subtitle">
@@ -150,7 +154,7 @@
           </div>
 
           <ol class="course-list" role="list">
-            <li class="course-card">
+            <li class="course-card" data-reveal>
               <div class="course-body">
                 <div class="course-title-row">
                   <h3 class="course-title">
@@ -176,7 +180,7 @@
               </a>
             </li>
 
-            <li class="course-card">
+            <li class="course-card" data-reveal>
               <div class="course-body">
                 <div class="course-title-row">
                   <h3 class="course-title">
@@ -202,7 +206,7 @@
               </a>
             </li>
 
-            <li class="course-card">
+            <li class="course-card" data-reveal>
               <div class="course-body">
                 <div class="course-title-row">
                   <h3 class="course-title">
@@ -227,7 +231,7 @@
               </a>
             </li>
 
-            <li class="course-card">
+            <li class="course-card" data-reveal>
               <div class="course-body">
                 <div class="course-title-row">
                   <h3 class="course-title">Agentic AI</h3>
@@ -253,7 +257,7 @@
             </li>
           </ol>
 
-          <aside class="callout" aria-label="Build after Phase 2">
+          <aside class="callout" aria-label="Build after Phase 2" data-reveal>
             <p class="callout-label">
               <span aria-hidden="true">🛠</span> After Phase 2 — Build This
               Project
@@ -267,7 +271,7 @@
         </section>
 
         <section class="phase" aria-labelledby="phase-3-title">
-          <div class="phase-header">
+          <div class="phase-header" data-reveal>
             <p class="phase-eyebrow">Phase 3</p>
             <h2 class="phase-title" id="phase-3-title">
               MLOps &amp; Production
@@ -280,7 +284,7 @@
           </div>
 
           <ol class="course-list" role="list">
-            <li class="course-card">
+            <li class="course-card" data-reveal>
               <div class="course-body">
                 <div class="course-title-row">
                   <h3 class="course-title">Machine Learning in Production</h3>
@@ -304,7 +308,7 @@
               </a>
             </li>
 
-            <li class="course-card">
+            <li class="course-card" data-reveal>
               <div class="course-body">
                 <div class="course-title-row">
                   <h3 class="course-title">
@@ -332,7 +336,7 @@
             </li>
           </ol>
 
-          <aside class="callout" aria-label="Build after Phase 3">
+          <aside class="callout" aria-label="Build after Phase 3" data-reveal>
             <p class="callout-label">
               <span aria-hidden="true">⚙️</span> After Phase 3 — Upgrade Your
               Projects
@@ -346,7 +350,7 @@
         </section>
 
         <section class="phase" aria-labelledby="phase-4-title">
-          <div class="phase-header">
+          <div class="phase-header" data-reveal>
             <p class="phase-eyebrow">Phase 4</p>
             <h2 class="phase-title" id="phase-4-title">Specialize</h2>
             <p class="phase-subtitle">
@@ -355,7 +359,12 @@
             <div class="phase-accent" aria-hidden="true"></div>
           </div>
 
-          <div class="track-tabs" role="tablist" aria-label="Specialization tracks">
+          <div
+            class="track-tabs"
+            role="tablist"
+            aria-label="Specialization tracks"
+            data-reveal
+          >
             <button
               type="button"
               id="track-tab-a"
@@ -403,7 +412,7 @@
             aria-labelledby="track-tab-a"
           >
             <ol class="course-list" role="list">
-              <li class="course-card">
+              <li class="course-card" data-reveal>
                 <div class="course-body">
                   <div class="course-title-row">
                     <h3 class="course-title">
@@ -440,7 +449,7 @@
             hidden
           >
             <ol class="course-list" role="list">
-              <li class="course-card">
+              <li class="course-card" data-reveal>
                 <div class="course-body">
                   <div class="course-title-row">
                     <h3 class="course-title">
@@ -477,7 +486,7 @@
             hidden
           >
             <ol class="course-list" role="list">
-              <li class="course-card">
+              <li class="course-card" data-reveal>
                 <div class="course-body">
                   <div class="course-title-row">
                     <h3 class="course-title">Transformers in Practice</h3>
@@ -617,6 +626,32 @@
             nextTab.focus();
           });
         });
+      })();
+
+      (function () {
+        const revealEls = document.querySelectorAll("[data-reveal]");
+        if (!revealEls.length) {
+          return;
+        }
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        if (reduceMotion || !("IntersectionObserver" in window)) {
+          revealEls.forEach((el) => el.classList.add("in-view"));
+          return;
+        }
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+        );
+        revealEls.forEach((el) => observer.observe(el));
       })();
     </script>
   </body>
