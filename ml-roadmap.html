@@ -48,6 +48,14 @@
         </div>
 
         <div class="side-tools">
+          <a
+            class="nav-resume"
+            href="./Krushal_Kalkani_ML_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Resume <span class="arrow" aria-hidden="true">→</span>
+          </a>
           <button
             id="themeToggle"
             class="theme-toggle"
@@ -552,6 +560,27 @@
       </div>
     </main>
 
+    <div class="scroll-cue is-hidden" id="scrollCue" aria-hidden="true">
+      <div class="scroll-cue__fade" aria-hidden="true"></div>
+      <button
+        type="button"
+        class="scroll-cue__btn"
+        aria-label="Scroll down for more content"
+      >
+        <span class="scroll-cue__label">More below</span>
+        <svg class="scroll-cue__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 5v14M6 13l6 6 6-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </div>
+
     <script>
       (function () {
         const themeToggle = document.getElementById("themeToggle");
@@ -728,6 +757,49 @@
           { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
         );
         revealEls.forEach((el) => observer.observe(el));
+      })();
+
+      (function () {
+        const cue = document.getElementById("scrollCue");
+        const btn = cue?.querySelector(".scroll-cue__btn");
+        if (!cue || !btn) {
+          return;
+        }
+
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        const isScrollable = () => {
+          const scroller = document.scrollingElement || document.documentElement;
+          return scroller.scrollHeight > window.innerHeight + 56;
+        };
+
+        const isNearBottom = () => {
+          const scroller = document.scrollingElement || document.documentElement;
+          return (
+            scroller.scrollTop + window.innerHeight >= scroller.scrollHeight - 80
+          );
+        };
+
+        const update = () => {
+          const show =
+            isScrollable() && !isNearBottom() && window.scrollY < 72;
+          cue.classList.toggle("is-hidden", !show);
+          cue.setAttribute("aria-hidden", String(!show));
+        };
+
+        btn.addEventListener("click", () => {
+          window.scrollBy({
+            top: window.innerHeight * 0.65,
+            behavior: reduceMotion ? "auto" : "smooth",
+          });
+        });
+
+        window.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", update);
+        window.updateScrollCue = update;
+        update();
       })();
     </script>
   </body>

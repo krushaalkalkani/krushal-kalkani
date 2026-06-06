@@ -46,6 +46,14 @@
         </div>
 
         <div class="side-tools">
+          <a
+            class="nav-resume"
+            href="./Krushal_Kalkani_ML_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Resume <span class="arrow" aria-hidden="true">→</span>
+          </a>
           <button
             id="themeToggle"
             class="theme-toggle"
@@ -111,321 +119,371 @@
                 >hello[at]krushalkalkani.com</a
               >.
             </p>
-            <div class="inline-links">
+            <div class="social-links" aria-label="Social profiles">
               <a
+                class="social-link"
                 href="https://github.com/krushaalkalkani"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub"
               >
-                GitHub
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.93c.575.106.785-.25.785-.556 0-.275-.01-1.003-.015-1.97-3.197.695-3.872-1.54-3.872-1.54-.523-1.33-1.277-1.684-1.277-1.684-1.044-.714.08-.7.08-.7 1.155.082 1.763 1.187 1.763 1.187 1.026 1.758 2.693 1.25 3.35.956.103-.744.402-1.25.731-1.538-2.553-.29-5.238-1.277-5.238-5.683 0-1.255.448-2.282 1.184-3.086-.119-.29-.513-1.46.112-3.044 0 0 .966-.31 3.166 1.178a10.98 10.98 0 0 1 2.882-.388c.978.004 1.963.132 2.883.388 2.198-1.488 3.163-1.178 3.163-1.178.626 1.584.232 2.754.114 3.044.737.804 1.182 1.831 1.182 3.086 0 4.417-2.69 5.39-5.252 5.674.413.356.78 1.057.78 2.131 0 1.54-.014 2.78-.014 3.158 0 .309.207.668.79.555A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"
+                  />
+                </svg>
               </a>
               <a
+                class="social-link"
                 href="https://www.linkedin.com/in/krushal-kalkani/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
               >
-                LinkedIn
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a-2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 4.128 0 2.062 2.062 0 0 1-2.065 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
               </a>
               <a
+                class="social-link"
                 href="https://x.com/krushalk22"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="X"
               >
-                X
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
               </a>
             </div>
           </div>
 
           <div class="hero-media" data-reveal>
-            <div
-              class="pixel-portrait"
-              id="pixelPortrait"
-              role="img"
-              aria-label="Krushal Kalkani"
-            >
-              <canvas class="pixel-portrait__canvas" aria-hidden="true"></canvas>
+            <figure class="portrait-card">
               <img
                 src="./Images/Krushal.jpeg"
                 alt="Krushal Kalkani"
-                class="portrait pixel-portrait__src"
+                class="portrait"
+                loading="eager"
+                fetchpriority="high"
               />
-            </div>
+            </figure>
           </div>
+
         </section>
 
         <section id="work" class="section content-view" hidden>
           <div class="section-heading-wrap" data-reveal>
             <p class="section-label">Experience</p>
             <h2>Recent work</h2>
+            <p class="section-lead">
+              ML research, student leadership, and industry software
+              experience.
+            </p>
           </div>
 
-          <article class="list-item experience-item" data-reveal>
-            <div class="item-copy">
-              <div class="experience-head">
+          <div class="experience-list">
+            <article class="experience-card" data-reveal>
+              <header class="experience-card__head">
                 <h3>Florida Atlantic University</h3>
                 <p class="experience-summary">
-                  2025 - 2026 · Boca Raton, FL
+                  2025 – 2026 · Boca Raton, FL
                 </p>
-              </div>
+              </header>
 
               <div class="role-stack">
-                <div class="role-block">
+                <div class="role-block role-block--highlight">
                   <div class="role-heading">
-                    <div class="role-title-group">
-                      <h4>Elite Owl Ambassador (Leadership &amp; Service)</h4>
-                    </div>
-                    <p class="role-date">Mar 2025 - May 2026 · Hybrid</p>
+                    <span class="role-badge">Research</span>
+                    <h4>Research Assistant</h4>
+                    <p class="role-date">Mar 2025 – Aug 2025 · Hybrid</p>
                   </div>
                   <p>
-                    Selected for the competitive 2025-26 Elite Owls Ambassador
-                    cohort, representing the university as a student leader and
-                    supporting initiatives such as Leadership Labs and the
-                    Legacy 61 program.
+                    Supported quiet-standing balance experiments with Python
+                    pipelines and MediaPipe Pose for skeletal landmark detection
+                    and center-of-mass estimation.
                   </p>
-                  <p class="detail-line">
-                    Leadership / Student Engagement / Event Planning
-                  </p>
+                  <div class="tag-list" aria-label="Skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">MediaPipe</span>
+                    <span class="skill-tag">Data Analysis</span>
+                  </div>
                 </div>
 
                 <div class="role-block">
                   <div class="role-heading">
-                    <div class="role-title-group">
-                      <h4>FDS</h4>
-                    </div>
-                    <p class="role-date">Aug 2025 - May 2026 · On-site</p>
+                    <span class="role-badge role-badge--lead">Leadership</span>
+                    <h4>Elite Owl Ambassador</h4>
+                    <p class="role-date">Mar 2025 – May 2026 · Hybrid</p>
                   </div>
                   <p>
-                    Assist students, manage daily administrative
-                    responsibilities, and support housing operations with clear
-                    communication and professionalism.
+                    Selected for the competitive 2025–26 Elite Owls cohort;
+                    represented FAU as a student leader across Leadership Labs
+                    and the Legacy 61 program.
                   </p>
-                  <p class="detail-line">
-                    Student Support / Operations / Communication
-                  </p>
+                  <div class="tag-list" aria-label="Skills">
+                    <span class="skill-tag">Leadership</span>
+                    <span class="skill-tag">Event Planning</span>
+                    <span class="skill-tag">Public Speaking</span>
+                  </div>
                 </div>
 
                 <div class="role-block">
                   <div class="role-heading">
-                    <div class="role-title-group">
-                      <h4>Research Assistant</h4>
-                    </div>
-                    <p class="role-date">Mar 2025 - Aug 2025 · Hybrid</p>
+                    <span class="role-badge role-badge--ops">Operations</span>
+                    <h4>Front Desk Supervisor (FDS)</h4>
+                    <p class="role-date">Aug 2025 – May 2026 · On-site</p>
                   </div>
                   <p>
-                    Contributed to data collection, cleaning, and analysis for
-                    quiet-standing balance experiments, using MediaPipe Pose for
-                    skeletal landmark detection and center-of-mass estimation.
+                    Supported student residents and housing operations — intake,
+                    daily admin, and clear communication under high-traffic
+                    front-desk conditions.
                   </p>
-                  <p class="detail-line">
-                    Python / MediaPipe / Data Analysis / Balance Research
-                  </p>
+                  <div class="tag-list" aria-label="Skills">
+                    <span class="skill-tag">Operations</span>
+                    <span class="skill-tag">Communication</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <article class="list-item experience-item" data-reveal>
-            <div class="item-copy">
-              <div class="experience-head">
+            <article class="experience-card" data-reveal>
+              <header class="experience-card__head">
                 <h3>Brainvire Infotech Inc.</h3>
                 <p class="experience-summary">
-                  2023 - 2024 · Ahmedabad, Gujarat, India
+                  2023 – 2024 · Ahmedabad, Gujarat, India
                 </p>
-              </div>
+              </header>
 
               <div class="role-stack">
                 <div class="role-block">
                   <div class="role-heading">
-                    <div class="role-title-group">
-                      <h4>Odoo Developer</h4>
-                      <p class="role-subtitle">Software Developer</p>
-                    </div>
-                    <p class="role-date">Jun 2023 - Dec 2023 · On-site</p>
+                    <span class="role-badge role-badge--industry">Industry</span>
+                    <h4>Odoo Developer</h4>
+                    <p class="role-subtitle">Software Developer</p>
+                    <p class="role-date">Jun 2023 – Dec 2023 · On-site</p>
                   </div>
                   <p>
-                    Worked as an Odoo Developer, learning and building projects
-                    with Odoo.
+                    Built and customized Odoo ERP modules with Python and
+                    JavaScript — my first production software role after
+                    internship.
                   </p>
-                  <p class="detail-line">Python / JavaScript / Odoo</p>
+                  <div class="tag-list" aria-label="Skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Odoo</span>
+                  </div>
                 </div>
 
                 <div class="role-block">
                   <div class="role-heading">
-                    <div class="role-title-group">
-                      <h4>Software Developer Intern</h4>
-                      <p class="role-subtitle">Internship</p>
-                    </div>
-                    <p class="role-date">Feb 2023 - May 2023 · On-site</p>
+                    <span class="role-badge role-badge--industry">Industry</span>
+                    <h4>Software Developer Intern</h4>
+                    <p class="role-date">Feb 2023 – May 2023 · On-site</p>
                   </div>
                   <p>
-                    Internship in Web Dev and Python. It was my first internship
-                    and great experience with the company and people around me.
+                    Full-stack internship across web development and Python —
+                    shipped features with code review and agile team workflows.
                   </p>
-                  <p class="detail-line">JavaScript / Python</p>
+                  <div class="tag-list" aria-label="Skills">
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Python</span>
+                  </div>
                 </div>
               </div>
 
-              <div class="inline-links experience-links">
+              <div class="card-actions">
                 <a
+                  class="course-action"
                   href="https://github.com/krushaalkalkani/odoo-projects"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Odoo Projects
+                  Odoo projects <span class="arrow" aria-hidden="true">→</span>
                 </a>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
         </section>
 
         <section id="projects" class="section content-view" hidden>
           <div class="section-heading-wrap" data-reveal>
             <p class="section-label">Projects</p>
             <h2>Selected work</h2>
+            <p class="section-lead">
+              End-to-end ML apps and agent tooling — built, deployed, and
+              documented.
+            </p>
           </div>
 
-          <div class="project-tabs" data-reveal>
-            <div class="project-tab-list" role="tablist" aria-label="Projects">
-              <button
-                type="button"
-                id="project-tab-01"
-                class="project-tab active"
-                data-target="project-01"
-                role="tab"
-                aria-selected="true"
-                aria-controls="project-01"
-              >
-                <span class="project-tab-index">01</span>
-                <span class="project-tab-title">Heart Disease Prediction</span>
-              </button>
-              <button
-                type="button"
-                id="project-tab-02"
-                class="project-tab"
-                data-target="project-02"
-                role="tab"
-                aria-selected="false"
-                aria-controls="project-02"
-              >
-                <span class="project-tab-index">02</span>
-                <span class="project-tab-title">Smart Resume Analyzer</span>
-              </button>
-              <button
-                type="button"
-                id="project-tab-03"
-                class="project-tab"
-                data-target="project-03"
-                role="tab"
-                aria-selected="false"
-                aria-controls="project-03"
-              >
-                <span class="project-tab-index">03</span>
-                <span class="project-tab-title">Predictive Analytics</span>
-              </button>
-            </div>
-
-            <div
-              class="project-panel active"
-              id="project-01"
-              role="tabpanel"
-              aria-labelledby="project-tab-01"
-            >
-              <div class="item-copy">
-                <h3>Heart Disease Prediction Web App</h3>
-                <p>
-                  Built an end-to-end ML pipeline on 8,763 patient records,
-                  engineered features, compared models, and shipped the final
-                  app with Streamlit and Docker to Hugging Face Spaces.
+          <ol class="project-list" role="list">
+            <li class="project-card project-card--featured" data-reveal>
+              <div class="project-card__body">
+                <div class="project-card__title-row">
+                  <h3>Agentic AI Builder</h3>
+                  <span class="course-badge is-intermediate">Featured</span>
+                </div>
+                <p class="project-card__hook">
+                  Reusable Cursor skill that turns vague agent ideas into
+                  shippable MVPs — planning, tools, evals, and portfolio docs.
                 </p>
-                <p class="detail-line">
-                  Python / Scikit-learn / XGBoost / Streamlit
-                </p>
-                <div class="inline-links">
+                <ul class="project-metrics">
+                  <li>Structured build workflow for tool-using LLM apps</li>
+                  <li>Covers RAG, MCP, planning, and evaluation patterns</li>
+                </ul>
+                <div class="tag-list" aria-label="Technologies">
+                  <span class="skill-tag">Agentic AI</span>
+                  <span class="skill-tag">RAG</span>
+                  <span class="skill-tag">MCP</span>
+                  <span class="skill-tag">Cursor</span>
+                </div>
+                <div class="project-card__actions">
+                  <a class="course-action" href="ai-skill.html">
+                    Skill guide <span class="arrow" aria-hidden="true">→</span>
+                  </a>
                   <a
+                    class="course-action"
+                    href="https://github.com/krushaalkalkani/agentic-ai-skill"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub <span class="arrow" aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            </li>
+
+            <li class="project-card" data-reveal>
+              <div class="project-card__body">
+                <div class="project-card__title-row">
+                  <h3>Heart Disease Prediction</h3>
+                  <span class="project-card__stat">8,763 records</span>
+                </div>
+                <p class="project-card__hook">
+                  End-to-end ML pipeline with model comparison, feature
+                  engineering, and a deployed Streamlit app on Hugging Face.
+                </p>
+                <div class="tag-list" aria-label="Technologies">
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">XGBoost</span>
+                  <span class="skill-tag">Streamlit</span>
+                  <span class="skill-tag">Docker</span>
+                </div>
+                <div class="project-card__actions">
+                  <a
+                    class="course-action"
                     href="https://github.com/krushaalkalkani/heart-disease-predictor"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    GitHub
+                    GitHub <span class="arrow" aria-hidden="true">→</span>
                   </a>
                   <a
+                    class="course-action"
                     href="https://huggingface.co/spaces/krushalkalkani/heart-disease-predictor"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Live Demo
+                    Live demo <span class="arrow" aria-hidden="true">→</span>
                   </a>
                 </div>
               </div>
-            </div>
+            </li>
 
-            <div
-              class="project-panel"
-              id="project-02"
-              role="tabpanel"
-              aria-labelledby="project-tab-02"
-            >
-              <div class="item-copy">
-                <h3>Smart Resume Analyzer</h3>
-                <p>
-                  Built an end-to-end NLP pipeline on 2,484 resumes across 24
-                  job categories, applied TF-IDF vectorization, trained
-                  multi-class classifiers, and shipped the final app with
-                  Streamlit to Hugging Face Spaces.
+            <li class="project-card" data-reveal>
+              <div class="project-card__body">
+                <div class="project-card__title-row">
+                  <h3>Smart Resume Analyzer</h3>
+                  <span class="project-card__stat">24 categories</span>
+                </div>
+                <p class="project-card__hook">
+                  NLP pipeline on 2,484 resumes — TF-IDF features, multi-class
+                  classification, and a Streamlit demo on Hugging Face Spaces.
                 </p>
-                <p class="detail-line">
-                  Python / Scikit-learn / TF-IDF / Streamlit
-                </p>
-                <div class="inline-links">
+                <div class="tag-list" aria-label="Technologies">
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">TF-IDF</span>
+                  <span class="skill-tag">Scikit-learn</span>
+                  <span class="skill-tag">Streamlit</span>
+                </div>
+                <div class="project-card__actions">
                   <a
+                    class="course-action"
                     href="https://github.com/krushaalkalkani/resume-analyzer"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    GitHub
+                    GitHub <span class="arrow" aria-hidden="true">→</span>
                   </a>
                   <a
+                    class="course-action"
                     href="https://huggingface.co/spaces/krushalkalkani/resume-analyzer"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Live Demo
+                    Live demo <span class="arrow" aria-hidden="true">→</span>
                   </a>
                 </div>
               </div>
-            </div>
+            </li>
 
-            <div
-              class="project-panel"
-              id="project-03"
-              role="tabpanel"
-              aria-labelledby="project-tab-03"
-            >
-              <div class="item-copy">
-                <h3>Predictive Analytics for Startups</h3>
-                <p>
-                  Built a multiple linear regression model to predict startup
-                  profits from R&amp;D, marketing, and administration data, then
-                  improved it through feature scaling and backward elimination.
+            <li class="project-card" data-reveal>
+              <div class="project-card__body">
+                <div class="project-card__title-row">
+                  <h3>Predictive Analytics for Startups</h3>
+                  <span class="project-card__stat">Regression</span>
+                </div>
+                <p class="project-card__hook">
+                  Multiple linear regression to predict startup profits from
+                  R&amp;D, marketing, and admin spend — with scaling and
+                  backward elimination.
                 </p>
-                <p class="detail-line">
-                  Python / Machine Learning / Data Analysis
-                </p>
-                <div class="inline-links">
+                <div class="tag-list" aria-label="Technologies">
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">Regression</span>
+                  <span class="skill-tag">Feature Engineering</span>
+                </div>
+                <div class="project-card__actions">
                   <a
+                    class="course-action"
                     href="https://github.com/krushaalkalkani/machine-learning"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    GitHub
+                    GitHub <span class="arrow" aria-hidden="true">→</span>
                   </a>
                 </div>
               </div>
-            </div>
-          </div>
+            </li>
+          </ol>
         </section>
       </div>
     </main>
+
+    <div class="scroll-cue is-hidden" id="scrollCue" aria-hidden="true">
+      <div class="scroll-cue__fade" aria-hidden="true"></div>
+      <button
+        type="button"
+        class="scroll-cue__btn"
+        aria-label="Scroll down for more content"
+      >
+        <span class="scroll-cue__label">More below</span>
+        <svg class="scroll-cue__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 5v14M6 13l6 6 6-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </div>
 
     <script>
       const themeToggle = document.getElementById("themeToggle");
@@ -469,9 +527,6 @@
       const navLinks = Array.from(allSideLinks).filter((link) =>
         (link.getAttribute("href") || "").startsWith("#"),
       );
-      const projectTabs = document.querySelectorAll(".project-tab");
-      const projectPanels = document.querySelectorAll(".project-panel");
-
       (function () {
         const nav = document.querySelector(".side-nav");
         const agent = nav?.querySelector(".nav-agent");
@@ -587,6 +642,7 @@
         });
 
         window.moveNavAgentToActive?.();
+        requestAnimationFrame(() => window.updateScrollCue?.());
         return nextId;
       };
 
@@ -621,23 +677,6 @@
         if (window.location.hash !== `#${resolvedId}`) {
           window.history.replaceState(null, "", `#${resolvedId}`);
         }
-      });
-
-      projectTabs.forEach((tab) => {
-        tab.addEventListener("click", () => {
-          projectTabs.forEach((item) => {
-            item.classList.remove("active");
-            item.setAttribute("aria-selected", "false");
-          });
-
-          projectPanels.forEach((panel) => {
-            panel.classList.remove("active");
-          });
-
-          tab.classList.add("active");
-          tab.setAttribute("aria-selected", "true");
-          document.getElementById(tab.dataset.target).classList.add("active");
-        });
       });
 
       (function () {
@@ -959,6 +998,49 @@
         } else {
           img.addEventListener("load", start, { once: true });
         }
+      })();
+
+      (function () {
+        const cue = document.getElementById("scrollCue");
+        const btn = cue?.querySelector(".scroll-cue__btn");
+        if (!cue || !btn) {
+          return;
+        }
+
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        const isScrollable = () => {
+          const scroller = document.scrollingElement || document.documentElement;
+          return scroller.scrollHeight > window.innerHeight + 56;
+        };
+
+        const isNearBottom = () => {
+          const scroller = document.scrollingElement || document.documentElement;
+          return (
+            scroller.scrollTop + window.innerHeight >= scroller.scrollHeight - 80
+          );
+        };
+
+        const update = () => {
+          const show =
+            isScrollable() && !isNearBottom() && window.scrollY < 72;
+          cue.classList.toggle("is-hidden", !show);
+          cue.setAttribute("aria-hidden", String(!show));
+        };
+
+        btn.addEventListener("click", () => {
+          window.scrollBy({
+            top: window.innerHeight * 0.65,
+            behavior: reduceMotion ? "auto" : "smooth",
+          });
+        });
+
+        window.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", update);
+        window.updateScrollCue = update;
+        update();
       })();
     </script>
   </body>
