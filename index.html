@@ -6,6 +6,7 @@
     <script>
       document.documentElement.classList.add("has-js");
     </script>
+    <meta name="color-scheme" content="dark light" />
     <meta
       name="description"
       content="Krushal Kalkani — Full-stack developer specializing in AI/ML and Python"
@@ -26,10 +27,23 @@
     <title>Krushal Kalkani - Portfolio</title>
   </head>
 
-  <body>
+  <body data-theme="dark">
     <main class="page-shell">
-      <aside class="side-nav">
-        <nav class="side-links" aria-label="Sections">
+      <aside class="side-nav" id="siteNavBar">
+        <button
+          type="button"
+          class="nav-menu-toggle"
+          id="navMenuToggle"
+          aria-expanded="false"
+          aria-controls="siteNav"
+          aria-label="Open menu"
+        >
+          <span class="nav-menu-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-menu-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-menu-toggle__bar" aria-hidden="true"></span>
+        </button>
+
+        <nav class="side-links" id="siteNav" aria-label="Sections">
           <a href="#about" class="side-link active">About</a>
           <a href="#work" class="side-link">Experience</a>
           <a href="#projects" class="side-link">Projects</a>
@@ -502,16 +516,49 @@
         );
       };
 
-      const storedTheme = window.localStorage.getItem("theme");
-      applyTheme(storedTheme || "dark");
+      applyTheme("dark");
 
       themeToggle?.addEventListener("click", () => {
         const nextTheme =
           document.body.dataset.theme === "light" ? "dark" : "light";
-
-        window.localStorage.setItem("theme", nextTheme);
         applyTheme(nextTheme);
       });
+
+      (function () {
+        const nav = document.getElementById("siteNavBar");
+        const toggle = document.getElementById("navMenuToggle");
+        const links = document.getElementById("siteNav");
+        if (!nav || !toggle || !links) {
+          return;
+        }
+
+        const setOpen = (open) => {
+          nav.classList.toggle("is-open", open);
+          toggle.setAttribute("aria-expanded", String(open));
+          toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+          document.body.classList.toggle("nav-open", open);
+        };
+
+        toggle.addEventListener("click", () => {
+          setOpen(!nav.classList.contains("is-open"));
+        });
+
+        links.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => setOpen(false));
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") {
+            setOpen(false);
+          }
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 900) {
+            setOpen(false);
+          }
+        });
+      })();
 
       const obfuscatedEmail = document.querySelector(".obfuscated-email");
 
