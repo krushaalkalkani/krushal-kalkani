@@ -46,22 +46,24 @@
           <span class="nav-menu-toggle__bar" aria-hidden="true"></span>
         </button>
 
-        <nav class="side-links" id="siteNav" aria-label="Sections">
-          <a href="index.html#about" class="side-link">About</a>
-          <a href="index.html#work" class="side-link">Experience</a>
-          <a href="index.html#projects" class="side-link">Projects</a>
-          <a href="ml-roadmap.html" class="side-link">ML Roadmap</a>
-          <a href="ai-skill.html" class="side-link active" aria-current="page"
-            >Agentic AI</a
-          >
-        </nav>
-
-        <div class="nav-agent" aria-hidden="true">
-          <span class="nav-agent__helmet"></span>
-          <span class="nav-agent__pack"></span>
-          <span class="nav-agent__body"></span>
-          <span class="nav-agent__foot nav-agent__foot--left"></span>
-          <span class="nav-agent__foot nav-agent__foot--right"></span>
+        <div class="side-nav__track">
+          <nav class="side-links" id="siteNav" aria-label="Sections">
+            <a href="index.html#about" class="side-link">About</a>
+            <a href="index.html#work" class="side-link">Experience</a>
+            <a href="index.html#projects" class="side-link">Projects</a>
+            <a href="ml-roadmap.html" class="side-link">ML Roadmap</a>
+            <a href="ai-skill.html" class="side-link active" aria-current="page"
+              >Agentic AI</a
+            >
+          </nav>
+          <div class="nav-agent-track" aria-hidden="true"></div>
+          <div class="nav-agent" aria-hidden="true">
+            <span class="nav-agent__helmet"></span>
+            <span class="nav-agent__pack"></span>
+            <span class="nav-agent__body"></span>
+            <span class="nav-agent__foot nav-agent__foot--left"></span>
+            <span class="nav-agent__foot nav-agent__foot--right"></span>
+          </div>
         </div>
 
         <div class="side-tools">
@@ -454,35 +456,41 @@ Design the MVP, workflow, tools, evals, and file structure.</code></pre>
 
       (function () {
         const nav = document.querySelector(".side-nav");
-        const agent = nav?.querySelector(".nav-agent");
-        const links = nav ? Array.from(nav.querySelectorAll(".side-link")) : [];
+        const track = nav?.querySelector(".side-nav__track");
+        const agent = track?.querySelector(".nav-agent");
+        const links = track
+          ? Array.from(track.querySelectorAll(".side-link"))
+          : [];
         const reduceMotion = window.matchMedia(
           "(prefers-reduced-motion: reduce)",
         ).matches;
+        const mobileQuery = window.matchMedia("(max-width: 900px)");
         let lastX = null;
         let walkTimer;
-        let ticking = false;
 
-        if (!nav || !agent || !links.length) {
+        if (!nav || !track || !agent || !links.length) {
           return;
         }
 
+        const isAgentVisible = () =>
+          !mobileQuery.matches && agent.offsetParent !== null;
+
         const getCenter = (link) => {
-          const navRect = nav.getBoundingClientRect();
+          const trackRect = track.getBoundingClientRect();
           const linkRect = link.getBoundingClientRect();
-          return linkRect.left - navRect.left + linkRect.width / 2;
+          return linkRect.left - trackRect.left + linkRect.width / 2;
         };
 
         const setAgentX = (x, walking = true) => {
-          if (Number.isNaN(x)) {
+          if (!isAgentVisible() || Number.isNaN(x)) {
             return;
           }
 
           if (lastX !== null && Math.abs(x - lastX) > 1) {
-            nav.style.setProperty("--agent-facing", x >= lastX ? "1" : "-1");
+            track.style.setProperty("--agent-facing", x >= lastX ? "1" : "-1");
           }
 
-          nav.style.setProperty("--agent-x", `${Math.round(x)}px`);
+          track.style.setProperty("--agent-x", `${Math.round(x)}px`);
           lastX = x;
 
           if (!reduceMotion && walking) {
@@ -495,43 +503,36 @@ Design the MVP, workflow, tools, evals, and file structure.</code></pre>
         };
 
         const moveToActive = () => {
+          if (!isAgentVisible()) {
+            return;
+          }
+
           const active =
             links.find(
               (link) =>
                 link.classList.contains("active") ||
                 link.getAttribute("aria-current") === "page",
             ) || links[0];
+
           setAgentX(getCenter(active));
         };
 
-        const moveWithScroll = () => {
-          const scroller = document.scrollingElement || document.documentElement;
-          const maxScroll = scroller.scrollHeight - innerHeight;
-          if (maxScroll <= 0) {
-            moveToActive();
-            return;
-          }
-
-          const first = getCenter(links[0]);
-          const last = getCenter(links[links.length - 1]);
-          const progress = Math.min(Math.max(scroller.scrollTop / maxScroll, 0), 1);
-          setAgentX(first + (last - first) * progress);
-        };
-
-        const requestScrollMove = () => {
-          if (ticking) {
-            return;
-          }
-          ticking = true;
-          requestAnimationFrame(() => {
-            moveWithScroll();
-            ticking = false;
+        links.forEach((link) => {
+          new MutationObserver(moveToActive).observe(link, {
+            attributes: true,
+            attributeFilter: ["class", "aria-current"],
           });
+        });
+
+        const handleLayoutChange = () => {
+          lastX = null;
+          moveToActive();
         };
 
-        window.addEventListener("resize", moveToActive);
-        window.addEventListener("scroll", requestScrollMove, { passive: true });
+        window.addEventListener("resize", handleLayoutChange);
+        mobileQuery.addEventListener("change", handleLayoutChange);
         moveToActive();
+        requestAnimationFrame(() => requestAnimationFrame(moveToActive));
       })();
 
       (function () {
