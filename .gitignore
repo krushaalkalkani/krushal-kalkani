@@ -1,0 +1,6 @@
+
+# local one-off venv for scripts/asciify.py
+.venv-asciify/
+
+# scratch worktrees / embedded git repos (not part of the site)
+.tree/

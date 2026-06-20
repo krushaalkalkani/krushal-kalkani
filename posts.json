@@ -1,0 +1,27 @@
+{
+  "_howToAddAPost": "SOURCE OF TRUTH for the blog. To publish a new post: (1) add ONE entry to the 'posts' array below; (2) copy posts/_template.html to posts/<slug>.html and fill it in. blog.html renders the cards from this file, newest first by 'date'. Fields per entry: slug (matches posts/<slug>.html and the URL), title, date (YYYY-MM-DD), readingTime (free text e.g. '4 min read', optional), tags (array of 1-2 short strings -> pills), excerpt (1-2 sentences), featureImage (path like 'Images/my-post.jpg' or '' for the designed placeholder), featured (true for the one large post at top; keep at most one true). OPTIONAL 'url': set this when the post is its own standalone page (e.g. 'ml-roadmap.html') instead of posts/<slug>.html. See README-blog.md.",
+  "posts": [
+    {
+      "slug": "ml-roadmap",
+      "url": "ml-roadmap.html",
+      "title": "ML Engineer Roadmap",
+      "date": "2026-05-20",
+      "readingTime": "9 free courses",
+      "tags": ["Machine Learning", "Roadmap"],
+      "excerpt": "The exact learning path I'm following to become a Machine Learning Engineer — 9 free DeepLearning.AI courses, curated and sequenced for what the industry hires for in 2025–2026.",
+      "featureImage": "",
+      "featured": true
+    },
+    {
+      "slug": "agentic-ai-builder",
+      "url": "ai-skill.html",
+      "title": "Agentic AI Builder",
+      "date": "2026-05-10",
+      "readingTime": "5 min read",
+      "tags": ["Agentic AI", "Engineering"],
+      "excerpt": "A reusable skill that turns vague agent ideas into MVP-first, production-minded plans — with tools, RAG, reflection, evals, traces, and portfolio-ready docs.",
+      "featureImage": "",
+      "featured": false
+    }
+  ]
+}

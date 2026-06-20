@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      document.documentElement.classList.add("has-js");
+    </script>
+    <meta name="color-scheme" content="dark light" />
+    <meta
+      name="description"
+      content="Writing by Krushal Kalkani — notes on machine learning, the projects I build, and what I learn shipping them."
+    />
+    <meta property="og:title" content="Blog — Krushal Kalkani" />
+    <meta
+      property="og:description"
+      content="Notes on machine learning, the projects I build, and what I learn shipping them."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="./Images/favicon.png" />
+    <title>Blog | Krushal Kalkani</title>
+  </head>
+
+  <body data-theme="dark">
+    <main class="page-shell">
+      <aside class="side-nav" id="siteNavBar">
+        <button
+          type="button"
+          class="nav-menu-toggle"
+          id="navMenuToggle"
+          aria-expanded="false"
+          aria-controls="siteNav"
+          aria-label="Open menu"
+        >
+          <span class="nav-menu-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-menu-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-menu-toggle__bar" aria-hidden="true"></span>
+        </button>
+
+        <div class="side-nav__track">
+          <nav class="side-links" id="siteNav" aria-label="Sections">
+            <a href="index.html#about" class="side-link">About</a>
+            <a href="index.html#work" class="side-link">Experience</a>
+            <a href="index.html#projects" class="side-link">Projects</a>
+            <a href="blog.html" class="side-link active" aria-current="page"
+              >Blog</a
+            >
+          </nav>
+          <div class="nav-agent-track" aria-hidden="true"></div>
+        </div>
+
+        <div class="side-tools">
+          <a
+            class="nav-resume"
+            href="./Krushal_Kalkani_ML_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Resume <span class="arrow" aria-hidden="true">→</span>
+          </a>
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch to light mode"
+            aria-pressed="false"
+            title="Toggle theme"
+          >
+            <svg
+              class="theme-icon theme-icon-moon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7.2 7.2 0 0 0 9.8 9.8Z" />
+            </svg>
+            <svg
+              class="theme-icon theme-icon-sun"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"
+              />
+            </svg>
+          </button>
+        </div>
+      </aside>
+
+      <div class="content-column">
+        <header class="blog-hero" aria-labelledby="blog-title">
+          <p class="section-label" data-reveal>Writing</p>
+          <h1 id="blog-title" data-reveal>Blog</h1>
+          <p class="blog-hero__subtitle" data-reveal>
+            Notes on machine learning, the projects I build, and what I learn
+            shipping them.
+          </p>
+        </header>
+
+        <ul class="blog-grid" id="blogGrid" aria-label="Blog posts">
+          <li class="blog-status" id="blogStatus">Loading posts…</li>
+        </ul>
+      </div>
+    </main>
+
+    <div class="scroll-cue is-hidden" id="scrollCue" aria-hidden="true">
+      <div class="scroll-cue__fade" aria-hidden="true"></div>
+      <button
+        type="button"
+        class="scroll-cue__btn"
+        aria-label="Scroll down for more content"
+      >
+        <span class="scroll-cue__label">More below</span>
+        <svg class="scroll-cue__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 5v14M6 13l6 6 6-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <script>
+      (function () {
+        const themeToggle = document.getElementById("themeToggle");
+
+        const applyTheme = (theme) => {
+          document.body.dataset.theme = theme;
+          if (!themeToggle) {
+            return;
+          }
+          const isLight = theme === "light";
+          themeToggle.setAttribute("aria-pressed", String(isLight));
+          themeToggle.setAttribute(
+            "aria-label",
+            isLight ? "Switch to dark mode" : "Switch to light mode",
+          );
+        };
+
+        applyTheme("dark");
+
+        themeToggle?.addEventListener("click", () => {
+          const nextTheme =
+            document.body.dataset.theme === "light" ? "dark" : "light";
+          applyTheme(nextTheme);
+        });
+      })();
+
+      (function () {
+        const nav = document.getElementById("siteNavBar");
+        const toggle = document.getElementById("navMenuToggle");
+        const links = document.getElementById("siteNav");
+        if (!nav || !toggle || !links) {
+          return;
+        }
+
+        const setOpen = (open) => {
+          nav.classList.toggle("is-open", open);
+          toggle.setAttribute("aria-expanded", String(open));
+          toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+          document.body.classList.toggle("nav-open", open);
+        };
+
+        toggle.addEventListener("click", () => {
+          setOpen(!nav.classList.contains("is-open"));
+        });
+
+        links.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => setOpen(false));
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") {
+            setOpen(false);
+          }
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 900) {
+            setOpen(false);
+          }
+        });
+      })();
+
+      // Reveal-on-scroll for the static header (cards handle their own below).
+      (function () {
+        const revealEls = document.querySelectorAll("[data-reveal]");
+        if (!revealEls.length) {
+          return;
+        }
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        if (reduceMotion || !("IntersectionObserver" in window)) {
+          revealEls.forEach((el) => el.classList.add("in-view"));
+          return;
+        }
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+        );
+        revealEls.forEach((el) => observer.observe(el));
+      })();
+
+      // Render the blog cards from posts.json (source of truth).
+      (function () {
+        const grid = document.getElementById("blogGrid");
+        const status = document.getElementById("blogStatus");
+        if (!grid) {
+          return;
+        }
+
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        const esc = (s) =>
+          String(s ?? "").replace(
+            /[&<>"']/g,
+            (c) =>
+              ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#39;",
+              })[c],
+          );
+
+        const MONTHS = [
+          "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+          "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+        ];
+        const niceDate = (iso) => {
+          const parts = String(iso).split("-").map(Number);
+          if (parts.length !== 3 || parts.some(Number.isNaN)) return esc(iso);
+          const [y, m, d] = parts;
+          return `${MONTHS[m - 1]} ${d}, ${y}`;
+        };
+
+        // Feature image — a real <img> when set, otherwise the designed
+        // placeholder. The monogram sits behind, so it never looks broken.
+        const mediaHTML = (post) => {
+          const mono =
+            '<span class="feature-media__monogram" aria-hidden="true">K</span>';
+          if (post.featureImage) {
+            return (
+              `<span class="feature-media">${mono}` +
+              `<img class="feature-media__img" src="${esc(post.featureImage)}" ` +
+              `alt="${esc(post.title)}" loading="lazy" decoding="async" /></span>`
+            );
+          }
+          return `<span class="feature-media" aria-hidden="true">${mono}</span>`;
+        };
+
+        const tagsHTML = (tags) =>
+          (Array.isArray(tags) ? tags.slice(0, 2) : [])
+            .map((t) => `<span class="skill-tag">${esc(t)}</span>`)
+            .join("");
+
+        const metaHTML = (post) => {
+          const date = `<time datetime="${esc(post.date)}">${niceDate(
+            post.date,
+          )}</time>`;
+          if (!post.readingTime) return `<div class="post-meta">${date}</div>`;
+          return (
+            `<div class="post-meta">${date}` +
+            `<span class="post-meta__sep" aria-hidden="true"></span>` +
+            `<span>${esc(post.readingTime)}</span></div>`
+          );
+        };
+
+        const cardHTML = (post, featured) => {
+          // A post can be its own standalone page via "url"; otherwise it
+          // lives at posts/<slug>.html.
+          const url = post.url
+            ? esc(post.url)
+            : `posts/${esc(post.slug)}.html`;
+          const featuredClass = featured ? " post-card--featured" : "";
+          const featuredLabel = featured
+            ? '<span class="post-card__featured-label">Featured</span>'
+            : "";
+          return (
+            `<li class="post-card${featuredClass}" data-reveal>` +
+            `<a class="post-card__media" href="${url}" tabindex="-1" aria-hidden="true">${mediaHTML(
+              post,
+            )}</a>` +
+            `<div class="post-card__body">` +
+            featuredLabel +
+            `<div class="post-card__tags">${tagsHTML(post.tags)}</div>` +
+            `<h2 class="post-card__title"><a href="${url}">${esc(
+              post.title,
+            )}</a></h2>` +
+            metaHTML(post) +
+            `<p class="post-card__excerpt">${esc(post.excerpt)}</p>` +
+            `<a class="read-link" href="${url}">Read ` +
+            `<span class="arrow" aria-hidden="true">→</span></a>` +
+            `</div></li>`
+          );
+        };
+
+        const revealCards = (cards) => {
+          if (reduceMotion || !("IntersectionObserver" in window)) {
+            cards.forEach((c) => c.classList.add("in-view"));
+            return;
+          }
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("in-view");
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.1, rootMargin: "0px 0px -6% 0px" },
+          );
+          cards.forEach((c) => observer.observe(c));
+        };
+
+        fetch("posts.json", { cache: "no-cache" })
+          .then((res) => {
+            if (!res.ok) throw new Error(`posts.json ${res.status}`);
+            return res.json();
+          })
+          .then((data) => {
+            const posts = Array.isArray(data.posts) ? data.posts.slice() : [];
+            if (!posts.length) {
+              if (status) status.textContent = "No posts yet — check back soon.";
+              return;
+            }
+            // Newest first.
+            posts.sort((a, b) => String(b.date).localeCompare(String(a.date)));
+            // The first post flagged featured renders large; the rest are cards.
+            const featured = posts.find((p) => p.featured);
+            const ordered = featured
+              ? [featured, ...posts.filter((p) => p !== featured)]
+              : posts;
+
+            grid.innerHTML = ordered
+              .map((p) => cardHTML(p, p === featured))
+              .join("");
+            revealCards(Array.from(grid.querySelectorAll(".post-card")));
+            window.updateScrollCue?.();
+          })
+          .catch((err) => {
+            console.error("Failed to load posts.json:", err);
+            if (status) {
+              status.textContent =
+                "Couldn't load posts right now. Please try again later.";
+            }
+          });
+      })();
+
+      (function () {
+        const cue = document.getElementById("scrollCue");
+        const btn = cue?.querySelector(".scroll-cue__btn");
+        if (!cue || !btn) {
+          return;
+        }
+
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        const isScrollable = () => {
+          const scroller = document.scrollingElement || document.documentElement;
+          return scroller.scrollHeight > window.innerHeight + 56;
+        };
+
+        const isNearBottom = () => {
+          const scroller = document.scrollingElement || document.documentElement;
+          return (
+            scroller.scrollTop + window.innerHeight >= scroller.scrollHeight - 80
+          );
+        };
+
+        const update = () => {
+          const show =
+            isScrollable() && !isNearBottom() && window.scrollY < 72;
+          cue.classList.toggle("is-hidden", !show);
+          cue.setAttribute("aria-hidden", String(!show));
+        };
+
+        btn.addEventListener("click", () => {
+          window.scrollBy({
+            top: window.innerHeight * 0.65,
+            behavior: reduceMotion ? "auto" : "smooth",
+          });
+        });
+
+        window.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", update);
+        window.updateScrollCue = update;
+        update();
+      })();
+    </script>
+  </body>
+</html>

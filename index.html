@@ -48,17 +48,9 @@
             <a href="#about" class="side-link active">About</a>
             <a href="#work" class="side-link">Experience</a>
             <a href="#projects" class="side-link">Projects</a>
-            <a href="ml-roadmap.html" class="side-link">ML Roadmap</a>
-            <a href="ai-skill.html" class="side-link">Agentic AI</a>
+            <a href="blog.html" class="side-link">Blog</a>
           </nav>
           <div class="nav-agent-track" aria-hidden="true"></div>
-          <div class="nav-agent" aria-hidden="true">
-            <span class="nav-agent__helmet"></span>
-            <span class="nav-agent__pack"></span>
-            <span class="nav-agent__body"></span>
-            <span class="nav-agent__foot nav-agent__foot--left"></span>
-            <span class="nav-agent__foot nav-agent__foot--right"></span>
-          </div>
         </div>
 
         <div class="side-tools">
@@ -179,14 +171,15 @@
           </div>
 
           <div class="hero-media" data-reveal>
-            <figure class="portrait-card">
-              <img
-                src="./Images/Krushal.jpeg"
-                alt="Krushal Kalkani"
-                class="portrait"
-                loading="eager"
-                fetchpriority="high"
-              />
+            <figure class="portrait-card portrait-card--ascii">
+              <canvas
+                class="portrait-canvas"
+                data-portrait-canvas
+                aria-hidden="true"
+              ></canvas>
+              <figcaption class="sr-only">
+                Animated ASCII dot-matrix portrait of Krushal Kalkani.
+              </figcaption>
             </figure>
           </div>
 
@@ -576,88 +569,6 @@
       const navLinks = Array.from(allSideLinks).filter((link) =>
         (link.getAttribute("href") || "").startsWith("#"),
       );
-      (function () {
-        const nav = document.querySelector(".side-nav");
-        const track = nav?.querySelector(".side-nav__track");
-        const agent = track?.querySelector(".nav-agent");
-        const links = track
-          ? Array.from(track.querySelectorAll(".side-link"))
-          : [];
-        const reduceMotion = window.matchMedia(
-          "(prefers-reduced-motion: reduce)",
-        ).matches;
-        const mobileQuery = window.matchMedia("(max-width: 900px)");
-        let lastX = null;
-        let walkTimer;
-
-        if (!nav || !track || !agent || !links.length) {
-          return;
-        }
-
-        const isAgentVisible = () =>
-          !mobileQuery.matches && agent.offsetParent !== null;
-
-        const getCenter = (link) => {
-          const trackRect = track.getBoundingClientRect();
-          const linkRect = link.getBoundingClientRect();
-          return linkRect.left - trackRect.left + linkRect.width / 2;
-        };
-
-        const setAgentX = (x, walking = true) => {
-          if (!isAgentVisible() || Number.isNaN(x)) {
-            return;
-          }
-
-          if (lastX !== null && Math.abs(x - lastX) > 1) {
-            track.style.setProperty("--agent-facing", x >= lastX ? "1" : "-1");
-          }
-
-          track.style.setProperty("--agent-x", `${Math.round(x)}px`);
-          lastX = x;
-
-          if (!reduceMotion && walking) {
-            agent.classList.add("is-walking");
-            window.clearTimeout(walkTimer);
-            walkTimer = window.setTimeout(() => {
-              agent.classList.remove("is-walking");
-            }, 520);
-          }
-        };
-
-        const moveToActive = () => {
-          if (!isAgentVisible()) {
-            return;
-          }
-
-          const active =
-            links.find(
-              (link) =>
-                link.classList.contains("active") ||
-                link.getAttribute("aria-current") === "page",
-            ) || links[0];
-
-          setAgentX(getCenter(active));
-        };
-
-        links.forEach((link) => {
-          new MutationObserver(moveToActive).observe(link, {
-            attributes: true,
-            attributeFilter: ["class", "aria-current"],
-          });
-        });
-
-        const handleLayoutChange = () => {
-          lastX = null;
-          moveToActive();
-        };
-
-        window.addEventListener("resize", handleLayoutChange);
-        mobileQuery.addEventListener("change", handleLayoutChange);
-        window.moveNavAgentToActive = moveToActive;
-        moveToActive();
-        requestAnimationFrame(() => requestAnimationFrame(moveToActive));
-      })();
-
       const showView = (id) => {
         const nextId = sectionIds.includes(id) ? id : sectionIds[0];
 
@@ -682,7 +593,6 @@
           }
         });
 
-        window.moveNavAgentToActive?.();
         requestAnimationFrame(() => window.updateScrollCue?.());
         return nextId;
       };
@@ -788,6 +698,188 @@
         window.addEventListener("resize", update);
         window.updateScrollCue = update;
         update();
+      })();
+    </script>
+    <script>
+      // Jelly ASCII portrait — per-character spring physics on a canvas.
+      (function () {
+        const canvas = document.querySelector("[data-portrait-canvas]");
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+
+        const FONT_STACK =
+          'ui-monospace, "SFMono-Regular", "Menlo", "Consolas", monospace';
+        const RAMP = " .:-=+*#%@"; // must match scripts/asciify.py
+        const LAST = RAMP.length - 1;
+        const STIFFNESS = 0.08; // spring pull back toward home
+        const DAMPING = 0.75; // velocity retained each frame
+        const RADIUS = 90; // cursor influence radius (CSS px)
+        const STRENGTH = 2.4; // push impulse near the cursor
+
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        let grid = null; // { cols, rows, cells }
+        let cells = []; // physics particles
+        let cellW = 0;
+        let cellH = 0;
+        let fontSize = 0;
+        let cssW = 0;
+        let cssH = 0;
+        let accent = "#3fffc2";
+
+        const pointer = { x: 0, y: 0, active: false };
+
+        const readAccent = () => {
+          const v = getComputedStyle(document.body)
+            .getPropertyValue("--ascii-accent")
+            .trim();
+          if (v) accent = v;
+        };
+
+        // Recompute the grid geometry for the current canvas box + DPR.
+        const layout = () => {
+          if (!grid) return;
+          const dpr = window.devicePixelRatio || 1;
+          const rect = canvas.getBoundingClientRect();
+          cssW = rect.width;
+          cssH = rect.height;
+          canvas.width = Math.round(cssW * dpr);
+          canvas.height = Math.round(cssH * dpr);
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+          cellW = cssW / grid.cols;
+          cellH = cssH / grid.rows;
+
+          // Pick the largest font that fits a cell both ways (no overlap),
+          // measuring this font stack's real advance/height ratio once.
+          ctx.font = `100px ${FONT_STACK}`;
+          const advance = ctx.measureText("M").width / 100; // ~0.6
+          fontSize = Math.min(cellW / advance, cellH * 0.96);
+
+          for (const cell of cells) {
+            cell.hx = (cell.col + 0.5) * cellW;
+            cell.hy = (cell.row + 0.5) * cellH;
+            // Snap to home on (re)layout so a resize never throws cells.
+            cell.x = cell.hx;
+            cell.y = cell.hy;
+            cell.vx = 0;
+            cell.vy = 0;
+          }
+        };
+
+        const draw = () => {
+          // On the dark site bright areas are dense; on the light site we
+          // invert so dark areas are dense — an ink-on-paper portrait.
+          const light = document.body.dataset.theme === "light";
+          ctx.clearRect(0, 0, cssW, cssH);
+          ctx.font = `${fontSize}px ${FONT_STACK}`;
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.fillStyle = accent;
+          for (const cell of cells) {
+            const v = light ? 1 - cell.l : cell.l;
+            const idx = Math.round(v * LAST);
+            if (idx <= 0) continue; // tone matches the background → invisible
+            ctx.globalAlpha = cell.alpha;
+            ctx.fillText(RAMP[idx], cell.x, cell.y);
+          }
+          ctx.globalAlpha = 1;
+        };
+
+        const r2 = RADIUS * RADIUS;
+        const step = () => {
+          for (const cell of cells) {
+            // Spring back to home, with damping.
+            cell.vx = (cell.vx + (cell.hx - cell.x) * STIFFNESS) * DAMPING;
+            cell.vy = (cell.vy + (cell.hy - cell.y) * STIFFNESS) * DAMPING;
+            cell.x += cell.vx;
+            cell.y += cell.vy;
+
+            if (pointer.active) {
+              const dx = cell.x - pointer.x;
+              const dy = cell.y - pointer.y;
+              const d2 = dx * dx + dy * dy;
+              if (d2 < r2 && d2 > 0.0001) {
+                const d = Math.sqrt(d2);
+                const f = (1 - d / RADIUS) * STRENGTH;
+                cell.vx += (dx / d) * f;
+                cell.vy += (dy / d) * f;
+              }
+            }
+          }
+          draw();
+          requestAnimationFrame(step);
+        };
+
+        const toLocal = (event) => {
+          const rect = canvas.getBoundingClientRect();
+          pointer.x = event.clientX - rect.left;
+          pointer.y = event.clientY - rect.top;
+        };
+
+        const start = (portrait) => {
+          grid = portrait;
+          cells = portrait.cells.map((c) => ({
+            l: c.l, // luminance (0-1); char is chosen per theme at draw time
+            col: c.x,
+            row: c.y,
+            alpha: c.a,
+            hx: 0,
+            hy: 0,
+            x: 0,
+            y: 0,
+            vx: 0,
+            vy: 0,
+          }));
+
+          readAccent();
+          layout();
+
+          if (reduceMotion) {
+            draw(); // static, no physics, no listeners
+            new ResizeObserver(() => {
+              layout();
+              draw();
+            }).observe(canvas);
+            new MutationObserver(() => {
+              readAccent();
+              draw();
+            }).observe(document.body, {
+              attributes: true,
+              attributeFilter: ["data-theme"],
+            });
+            return;
+          }
+
+          canvas.addEventListener("pointermove", (e) => {
+            toLocal(e);
+            pointer.active = true;
+          });
+          canvas.addEventListener("pointerleave", () => {
+            pointer.active = false;
+          });
+
+          new ResizeObserver(() => layout()).observe(canvas);
+          new MutationObserver(readAccent).observe(document.body, {
+            attributes: true,
+            attributeFilter: ["data-theme"],
+          });
+
+          requestAnimationFrame(step);
+        };
+
+        fetch("portrait.json", { cache: "no-cache" })
+          .then((res) => {
+            if (!res.ok) throw new Error(`portrait.json ${res.status}`);
+            return res.json();
+          })
+          .then(start)
+          .catch((err) => {
+            console.error("Jelly portrait failed to load:", err);
+          });
       })();
     </script>
   </body>

@@ -1,0 +1,242 @@
+<!doctype html>
+<!--
+  POST TEMPLATE — copy this file to posts/<slug>.html and fill it in.
+  <slug> must match the "slug" you add to ../posts.json.
+
+  Replace every {{PLACEHOLDER}} below. Paths use ../ because posts live in
+  this subfolder. To add a real banner image, see the comment in the banner.
+  See ../README-blog.md for the full guide.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      document.documentElement.classList.add("has-js");
+    </script>
+    <meta name="color-scheme" content="dark light" />
+    <meta name="description" content="{{EXCERPT}}" />
+    <meta property="og:title" content="{{TITLE}} — Krushal Kalkani" />
+    <meta property="og:description" content="{{EXCERPT}}" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="../Images/favicon.png" />
+    <title>{{TITLE}} | Krushal Kalkani</title>
+  </head>
+
+  <body data-theme="dark">
+    <main class="page-shell">
+      <aside class="side-nav" id="siteNavBar">
+        <button
+          type="button"
+          class="nav-menu-toggle"
+          id="navMenuToggle"
+          aria-expanded="false"
+          aria-controls="siteNav"
+          aria-label="Open menu"
+        >
+          <span class="nav-menu-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-menu-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-menu-toggle__bar" aria-hidden="true"></span>
+        </button>
+
+        <div class="side-nav__track">
+          <nav class="side-links" id="siteNav" aria-label="Sections">
+            <a href="../index.html#about" class="side-link">About</a>
+            <a href="../index.html#work" class="side-link">Experience</a>
+            <a href="../index.html#projects" class="side-link">Projects</a>
+            <a href="../blog.html" class="side-link active" aria-current="page"
+              >Blog</a
+            >
+          </nav>
+          <div class="nav-agent-track" aria-hidden="true"></div>
+        </div>
+
+        <div class="side-tools">
+          <a
+            class="nav-resume"
+            href="../Krushal_Kalkani_ML_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Resume <span class="arrow" aria-hidden="true">→</span>
+          </a>
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch to light mode"
+            aria-pressed="false"
+            title="Toggle theme"
+          >
+            <svg
+              class="theme-icon theme-icon-moon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7.2 7.2 0 0 0 9.8 9.8Z" />
+            </svg>
+            <svg
+              class="theme-icon theme-icon-sun"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"
+              />
+            </svg>
+          </button>
+        </div>
+      </aside>
+
+      <div class="content-column">
+        <article>
+          <div class="post-banner" data-reveal>
+            <!--
+              BANNER IMAGE: to use a real image, replace this entire <figure>
+              with the line below (keep the alt text meaningful):
+              <figure class="feature-media"><img class="feature-media__img"
+                src="../Images/{{SLUG}}.jpg" alt="{{IMAGE_ALT}}"
+                loading="lazy" decoding="async" /></figure>
+            -->
+            <figure class="feature-media" aria-hidden="true">
+              <span class="feature-media__monogram" aria-hidden="true">K</span>
+            </figure>
+          </div>
+
+          <header class="post-header" data-reveal>
+            <div class="post-tags">
+              <span class="skill-tag">{{TAG_1}}</span>
+              <span class="skill-tag">{{TAG_2}}</span>
+            </div>
+            <h1>{{TITLE}}</h1>
+            <div class="post-meta">
+              <time datetime="{{DATE_ISO}}">{{DATE_NICE}}</time>
+              <span class="post-meta__sep" aria-hidden="true"></span>
+              <span>{{READING_TIME}}</span>
+            </div>
+          </header>
+
+          <div class="post-body" data-reveal>
+            <p>{{LEAD_PARAGRAPH}}</p>
+
+            <h2>{{SECTION_HEADING}}</h2>
+            <p>{{PARAGRAPH}}</p>
+
+            <ul>
+              <li>{{LIST_ITEM}}</li>
+            </ul>
+
+            <blockquote>
+              <p>{{QUOTE}}</p>
+            </blockquote>
+
+            <h3>{{SUBHEADING}}</h3>
+            <p>{{PARAGRAPH}} You can use inline <code>code</code> too.</p>
+
+            <pre><code>{{CODE_BLOCK}}</code></pre>
+          </div>
+
+          <footer class="post-footer">
+            <a class="back-link" href="../blog.html">← Back to Blog</a>
+          </footer>
+        </article>
+      </div>
+    </main>
+
+    <script>
+      (function () {
+        const themeToggle = document.getElementById("themeToggle");
+
+        const applyTheme = (theme) => {
+          document.body.dataset.theme = theme;
+          if (!themeToggle) {
+            return;
+          }
+          const isLight = theme === "light";
+          themeToggle.setAttribute("aria-pressed", String(isLight));
+          themeToggle.setAttribute(
+            "aria-label",
+            isLight ? "Switch to dark mode" : "Switch to light mode",
+          );
+        };
+
+        applyTheme("dark");
+
+        themeToggle?.addEventListener("click", () => {
+          const nextTheme =
+            document.body.dataset.theme === "light" ? "dark" : "light";
+          applyTheme(nextTheme);
+        });
+      })();
+
+      (function () {
+        const nav = document.getElementById("siteNavBar");
+        const toggle = document.getElementById("navMenuToggle");
+        const links = document.getElementById("siteNav");
+        if (!nav || !toggle || !links) {
+          return;
+        }
+
+        const setOpen = (open) => {
+          nav.classList.toggle("is-open", open);
+          toggle.setAttribute("aria-expanded", String(open));
+          toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+          document.body.classList.toggle("nav-open", open);
+        };
+
+        toggle.addEventListener("click", () => {
+          setOpen(!nav.classList.contains("is-open"));
+        });
+
+        links.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => setOpen(false));
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") {
+            setOpen(false);
+          }
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 900) {
+            setOpen(false);
+          }
+        });
+      })();
+
+      (function () {
+        const revealEls = document.querySelectorAll("[data-reveal]");
+        if (!revealEls.length) {
+          return;
+        }
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        if (reduceMotion || !("IntersectionObserver" in window)) {
+          revealEls.forEach((el) => el.classList.add("in-view"));
+          return;
+        }
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.08, rootMargin: "0px 0px -6% 0px" },
+        );
+        revealEls.forEach((el) => observer.observe(el));
+      })();
+    </script>
+  </body>
+</html>
