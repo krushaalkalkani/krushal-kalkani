@@ -31,6 +31,12 @@
   </head>
 
   <body data-theme="dark">
+    <script>
+      // Apply the saved theme before paint to avoid a flash on navigation.
+      if (localStorage.getItem("theme") === "light") {
+        document.body.dataset.theme = "light";
+      }
+    </script>
     <main class="page-shell">
       <aside class="side-nav" id="siteNavBar">
         <button
@@ -410,12 +416,14 @@ Design the MVP, workflow, tools, evals, and file structure.</code></pre>
           );
         };
 
-        applyTheme("dark");
+        const savedTheme = localStorage.getItem("theme");
+        applyTheme(savedTheme === "light" ? "light" : "dark");
 
         themeToggle?.addEventListener("click", () => {
           const nextTheme =
             document.body.dataset.theme === "light" ? "dark" : "light";
           applyTheme(nextTheme);
+          localStorage.setItem("theme", nextTheme);
         });
       })();
 
