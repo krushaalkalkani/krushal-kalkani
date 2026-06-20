@@ -482,11 +482,21 @@ body[data-theme="light"] .portrait-card {
   box-shadow: 0 14px 32px -22px rgba(15, 20, 25, 0.14);
 }
 
-.portrait-card--ascii,
-body[data-theme="light"] .portrait-card--ascii {
+.portrait-card--ascii {
   border-color: transparent;
   background: transparent;
   box-shadow: none;
+}
+
+/* On the light site the portrait keeps its dark-mode backdrop so the
+   ASCII art stays readable and on-brand. */
+body[data-theme="light"] .portrait-card--ascii {
+  border-color: var(--line-strong);
+  border-radius: 14px;
+  background-color: #071426;
+  background-image: radial-gradient(rgba(118, 169, 255, 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+  box-shadow: 0 14px 32px -22px rgba(15, 20, 25, 0.2);
 }
 
 .portrait-canvas {
@@ -1603,6 +1613,44 @@ body[data-theme="light"] .portrait-card--ascii {
   .has-js [data-reveal] {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+}
+
+/* ============================================================
+   Page transitions — a soft fade/slide in on load and a quick
+   fade out when navigating to another page, so there's no harsh
+   flash between pages. Progressive enhancement: only with JS.
+   ============================================================ */
+.has-js .content-column {
+  animation: page-enter 560ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Set just before navigating away (see the page-transition script). */
+.has-js.is-leaving .content-column {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition:
+    opacity 240ms ease,
+    transform 240ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .has-js .content-column {
+    animation: none;
+  }
+  .has-js.is-leaving .content-column {
     transition: none;
   }
 }

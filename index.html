@@ -741,10 +741,10 @@
         const pointer = { x: 0, y: 0, active: false };
 
         const readAccent = () => {
-          const v = getComputedStyle(document.body)
-            .getPropertyValue("--ascii-accent")
-            .trim();
-          if (v) accent = v;
+          // The portrait always renders in its dark-mode palette — even on
+          // the light site it sits on a dark backdrop — so keep the bright
+          // accent and never switch to the light-theme value.
+          accent = "#3fffc2";
         };
 
         // Recompute the grid geometry for the current canvas box + DPR.
@@ -779,9 +779,9 @@
         };
 
         const draw = () => {
-          // On the dark site bright areas are dense; on the light site we
-          // invert so dark areas are dense — an ink-on-paper portrait.
-          const light = document.body.dataset.theme === "light";
+          // The portrait keeps its dark-mode look in both themes, so bright
+          // areas stay dense (no ink-on-paper inversion).
+          const light = false;
           ctx.clearRect(0, 0, cssW, cssH);
           ctx.font = `${fontSize}px ${FONT_STACK}`;
           ctx.textAlign = "center";
@@ -890,5 +890,6 @@
           });
       })();
     </script>
+    <script src="assets/js/page-transition.js" defer></script>
   </body>
 </html>
