@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
   POST TEMPLATE — copy this file to posts/<slug>.html and fill it in.
-  <slug> must match the "slug" you add to ../posts.json.
+  <slug> must match the "slug" you add to ../data/posts.json.
 
   Replace every {{PLACEHOLDER}} below. Paths use ../ because posts live in
   this subfolder. To add a real banner image, see the comment in the banner.
@@ -18,14 +18,14 @@
     <meta name="description" content="{{EXCERPT}}" />
     <meta property="og:title" content="{{TITLE}} — Krushal Kalkani" />
     <meta property="og:description" content="{{EXCERPT}}" />
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/png" href="../Images/favicon.png" />
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
     <title>{{TITLE}} | Krushal Kalkani</title>
   </head>
 
@@ -60,7 +60,7 @@
         <div class="side-tools">
           <a
             class="nav-resume"
-            href="../Krushal_Kalkani_ML_Resume.pdf"
+            href="../assets/docs/Krushal_Kalkani_ML_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -102,7 +102,7 @@
               BANNER IMAGE: to use a real image, replace this entire <figure>
               with the line below (keep the alt text meaningful):
               <figure class="feature-media"><img class="feature-media__img"
-                src="../Images/{{SLUG}}.jpg" alt="{{IMAGE_ALT}}"
+                src="../assets/img/{{SLUG}}.jpg" alt="{{IMAGE_ALT}}"
                 loading="lazy" decoding="async" /></figure>
             -->
             <figure class="feature-media" aria-hidden="true">

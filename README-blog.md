@@ -1,22 +1,37 @@
 # Blog — how it works & how to add a post
 
 The blog is plain static HTML/CSS/JS, matching the rest of the site (same
-tokens in `style.css`, same nav, same dark/light toggle). There is **no build
-step** — edit files, refresh, done.
+tokens in `assets/css/style.css`, same nav, same dark/light toggle). There is
+**no build step** — edit files, refresh, done.
+
+## Project structure
+
+```
+/  index.html  blog.html  ml-roadmap.html  ai-skill.html   ← pages (live at root)
+├── assets/
+│   ├── css/style.css        ← all styles
+│   ├── img/                 ← images (favicon, feature images, photo)
+│   └── docs/                ← résumé PDF
+├── data/
+│   ├── portrait.json        ← ASCII jelly-portrait data (index hero)
+│   └── posts.json           ← blog source of truth
+└── posts/
+    └── _template.html       ← copy this to create a post
+```
 
 ## Files
 
 | File | Role |
 | --- | --- |
-| `posts.json` | **Source of truth.** The list of posts the index renders. |
-| `blog.html` | The blog index — header + featured post + responsive card grid. Reads `posts.json`. |
+| `data/posts.json` | **Source of truth.** The list of posts the index renders. |
+| `blog.html` | The blog index — header + featured post + responsive card grid. Reads `data/posts.json`. |
 | `posts/<slug>.html` | One file per article. |
 | `posts/_template.html` | Starting point — copy it to create a new post. |
-| `style.css` | All blog styles live in the `Blog` section at the bottom. |
+| `assets/css/style.css` | All blog styles live in the `Blog` section at the bottom. |
 
 ## Add a new post (2 steps)
 
-### 1. Add one entry to `posts.json`
+### 1. Add one entry to `data/posts.json`
 
 Add an object to the `posts` array:
 
@@ -43,7 +58,7 @@ Field reference:
 - **tags** — array of 1–2 short strings, rendered as pills. (Only the first 2 show on a card.)
 - **excerpt** — 1–2 sentences for the card.
 - **featureImage** — `""` for the designed placeholder, or a path like
-  `"Images/my-new-post.jpg"` (relative to the **site root**, because
+  `"assets/img/my-new-post.jpg"` (relative to the **site root**, because
   `blog.html` lives at the root).
 - **featured** — `true` makes it the one large post at the top. Keep **at most
   one** `true`; if several are `true`, the newest wins.
@@ -76,19 +91,21 @@ and a faint `K` monogram — so nothing ever looks broken.
 
 To add a real image later:
 
-- **Index card:** just set `featureImage` in `posts.json`. It swaps in
-  automatically (lazy-loaded), with the title as alt text.
+- **Index card:** just set `featureImage` in `data/posts.json` (e.g.
+  `"assets/img/my-post.png"`). It swaps in automatically (lazy-loaded), with the
+  title as alt text.
 - **Article banner:** in `posts/<slug>.html`, replace the placeholder
   `<figure class="feature-media">…</figure>` with the `<img>` version shown in
-  the HTML comment right above it. Paths there use `../Images/...` (because post
-  files live in `posts/`). **Write real, descriptive alt text.**
+  the HTML comment right above it. Paths there use `../assets/img/...` (because
+  post files live in `posts/`). **Write real, descriptive alt text.**
 
-Recommended image ratio: **16:9** (e.g. 1280×720).
+Recommended image ratio: **16:9** (e.g. 1280×720). Keep files small (≈150–300 KB)
+so the blog stays fast.
 
 ## Running locally
 
-Because the index fetches `posts.json`, open the site through a local server
-(not `file://`):
+Because the index fetches `data/posts.json`, open the site through a local
+server (not `file://`):
 
 ```bash
 python3 -m http.server 8123
@@ -100,5 +117,5 @@ python3 -m http.server 8123
 - Works in **both themes** and is fully **responsive**; hover/transitions
   respect `prefers-reduced-motion`; images **lazy-load**; cards are keyboard
   accessible (real links, visible focus).
-- The `_howToAddAPost` key at the top of `posts.json` is a quick inline
+- The `_howToAddAPost` key at the top of `data/posts.json` is a quick inline
   reminder — it's ignored by the renderer (only the `posts` array is read).

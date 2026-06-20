@@ -80,7 +80,6 @@ body[data-theme="light"] .lead {
 }
 
 body[data-theme="light"] .hero-text,
-body[data-theme="light"] .item-copy p,
 body[data-theme="light"] .section-lead,
 body[data-theme="light"] .project-card__hook,
 body[data-theme="light"] .role-block p,
@@ -102,9 +101,6 @@ body[data-theme="light"] .nav-resume {
   border-color: color-mix(in srgb, var(--text) 22%, var(--line));
 }
 
-body[data-theme="light"] .inline-links {
-  color: var(--text-soft);
-}
 
 body[data-theme="light"] .social-link {
   background: #ffffff;
@@ -112,7 +108,6 @@ body[data-theme="light"] .social-link {
 }
 
 body[data-theme="light"] .section-heading-wrap h2,
-body[data-theme="light"] .item-copy h3,
 body[data-theme="light"] .experience-card__head h3,
 body[data-theme="light"] .project-card__title-row h3,
 body[data-theme="light"] .roadmap-hero h1,
@@ -120,7 +115,6 @@ body[data-theme="light"] .phase-title {
   color: var(--text);
 }
 
-body[data-theme="light"] .eyebrow,
 body[data-theme="light"] .section-label,
 body[data-theme="light"] .phase-eyebrow {
   color: var(--text-faint);
@@ -391,18 +385,9 @@ body[data-theme="light"] .theme-icon-moon {
   align-items: start;
 }
 
-.eyebrow {
-  margin-bottom: 12px;
-  color: var(--text-faint);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-}
 
 .lead,
 .hero-text,
-.item-copy p,
 .contact-line {
   max-width: 54ch;
   margin-bottom: 0;
@@ -429,28 +414,6 @@ body[data-theme="light"] .theme-icon-moon {
 }
 
 .contact-line a:hover {
-  color: var(--text);
-  text-decoration-color: var(--underline-strong);
-}
-
-.inline-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  color: var(--text-soft);
-  font-size: 14px;
-}
-
-.inline-links a {
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.18em;
-  text-decoration-color: var(--underline);
-  transition:
-    color var(--transition),
-    text-decoration-color var(--transition);
-}
-
-.inline-links a:hover {
   color: var(--text);
   text-decoration-color: var(--underline-strong);
 }
@@ -514,13 +477,6 @@ body[data-theme="light"] .theme-icon-moon {
   box-shadow: 0 14px 36px -22px rgba(2, 8, 20, 0.55);
 }
 
-.portrait {
-  display: block;
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  object-position: center 14%;
-}
 
 body[data-theme="light"] .portrait-card {
   box-shadow: 0 14px 32px -22px rgba(15, 20, 25, 0.14);
@@ -762,26 +718,6 @@ body[data-theme="light"] .portrait-card--ascii {
   line-height: 1.55;
 }
 
-.list-item {
-  display: grid;
-  grid-template-columns: 84px minmax(0, 1fr);
-  gap: 18px;
-  padding: 14px 0;
-}
-
-.list-item + .list-item {
-  border-top: 1px solid var(--line);
-}
-
-.item-copy h3 {
-  margin-bottom: 8px;
-  color: var(--text);
-  font-size: 1.28rem;
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: -0.03em;
-}
-
 .experience-summary {
   margin-bottom: 0;
   color: var(--text-faint);
@@ -811,11 +747,6 @@ body[data-theme="light"] .portrait-card--ascii {
   margin-bottom: 6px;
 }
 
-.role-title-group {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
 
 .role-heading h4 {
   color: var(--text);
@@ -832,13 +763,6 @@ body[data-theme="light"] .portrait-card--ascii {
   line-height: 1.5;
 }
 
-.detail-line {
-  margin-bottom: 13px;
-  color: var(--text-faint);
-  font-size: 11px;
-  font-style: italic;
-  line-height: 1.55;
-}
 
 @media (max-width: 900px) {
   #about,
@@ -965,9 +889,6 @@ body[data-theme="light"] .portrait-card--ascii {
     transform: none;
   }
 
-  .portrait {
-    object-position: center 10%;
-  }
 
   .experience-card,
   .project-card {
@@ -1010,25 +931,13 @@ body[data-theme="light"] .portrait-card--ascii {
     margin-top: 24px;
   }
 
-  .portrait {
-    object-position: center 8%;
-  }
   .lead,
   .hero-text,
-  .item-copy p,
-  .contact-line,
-  .inline-links {
+  .contact-line {
     font-size: 0.9rem;
   }
 
-  .list-item {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
 
-  .item-copy h3 {
-    font-size: 1.16rem;
-  }
 
   .role-heading h4 {
     font-size: 0.95rem;

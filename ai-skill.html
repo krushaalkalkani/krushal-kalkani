@@ -19,14 +19,14 @@
       property="og:description"
       content="A practical skill for turning agent ideas into shippable MVPs — with evals, traces, and clear architecture decisions."
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/png" href="./Images/favicon.png" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
     <title>Agentic AI Builder | Krushal Kalkani</title>
   </head>
 
@@ -61,7 +61,7 @@
         <div class="side-tools">
           <a
             class="nav-resume"
-            href="./Krushal_Kalkani_ML_Resume.pdf"
+            href="assets/docs/Krushal_Kalkani_ML_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -123,7 +123,6 @@
               View on GitHub <span class="arrow" aria-hidden="true">→</span>
             </a>
           </div>
-
         </section>
 
         <section class="phase" aria-labelledby="why-title">
@@ -198,7 +197,9 @@
               <div class="course-body">
                 <div class="course-title-row">
                   <h3 class="course-title">3 · Agentize</h3>
-                  <span class="course-badge is-intermediate">Add capability</span>
+                  <span class="course-badge is-intermediate"
+                    >Add capability</span
+                  >
                 </div>
                 <p class="course-why">
                   Layer in tools, RAG, code execution, reflection, and planning
@@ -211,7 +212,9 @@
               <div class="course-body">
                 <div class="course-title-row">
                   <h3 class="course-title">4 · Validate</h3>
-                  <span class="course-badge is-intermediate">Prove it works</span>
+                  <span class="course-badge is-intermediate"
+                    >Prove it works</span
+                  >
                 </div>
                 <p class="course-why">
                   Evals, trace logging, error analysis, and component-level
@@ -238,9 +241,7 @@
         <section class="phase" aria-labelledby="decide-title">
           <div class="phase-header" data-reveal>
             <p class="phase-eyebrow">Decision logic</p>
-            <h2 class="phase-title" id="decide-title">
-              When to add what
-            </h2>
+            <h2 class="phase-title" id="decide-title">When to add what</h2>
             <p class="phase-subtitle">
               The skill's most useful job is saying "no." Each capability is
               gated behind a clear question, so projects stay as simple as the
@@ -288,7 +289,11 @@
             <div class="phase-accent" aria-hidden="true"></div>
           </div>
 
-          <pre class="skill-tree" aria-label="Repository structure" data-reveal><code>agentic-ai-builder-skill/
+          <pre
+            class="skill-tree"
+            aria-label="Repository structure"
+            data-reveal
+          ><code>agentic-ai-builder-skill/
 ├─ SKILL.md                  ← main skill instructions + checklist
 ├─ references/               ← deeper notes on each pattern
 │  ├─ AGENTIC_AI_BLUEPRINT.md
@@ -313,7 +318,11 @@
             <div class="phase-accent" aria-hidden="true"></div>
           </div>
 
-          <pre class="skill-snippet" aria-label="Example prompt" data-reveal><code>Use the Agentic AI Builder skill.
+          <pre
+            class="skill-snippet"
+            aria-label="Example prompt"
+            data-reveal
+          ><code>Use the Agentic AI Builder skill.
 
 I want a research assistant that searches the web,
 summarizes sources, reflects on hallucination risk,
@@ -484,20 +493,22 @@ Design the MVP, workflow, tools, evals, and file structure.</code></pre>
         ).matches;
 
         const isScrollable = () => {
-          const scroller = document.scrollingElement || document.documentElement;
+          const scroller =
+            document.scrollingElement || document.documentElement;
           return scroller.scrollHeight > window.innerHeight + 56;
         };
 
         const isNearBottom = () => {
-          const scroller = document.scrollingElement || document.documentElement;
+          const scroller =
+            document.scrollingElement || document.documentElement;
           return (
-            scroller.scrollTop + window.innerHeight >= scroller.scrollHeight - 80
+            scroller.scrollTop + window.innerHeight >=
+            scroller.scrollHeight - 80
           );
         };
 
         const update = () => {
-          const show =
-            isScrollable() && !isNearBottom() && window.scrollY < 72;
+          const show = isScrollable() && !isNearBottom() && window.scrollY < 72;
           cue.classList.toggle("is-hidden", !show);
           cue.setAttribute("aria-hidden", String(!show));
         };

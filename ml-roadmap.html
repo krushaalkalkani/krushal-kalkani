@@ -16,14 +16,14 @@
       property="og:description"
       content="The exact 30-day learning path I'm following to become an ML Engineer — 9 free DeepLearning.AI courses, curated and sequenced for 2025–2026 hiring."
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/png" href="./Images/favicon.png" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
     <title>ML Roadmap | Krushal Kalkani</title>
   </head>
 
@@ -58,7 +58,7 @@
         <div class="side-tools">
           <a
             class="nav-resume"
-            href="./Krushal_Kalkani_ML_Resume.pdf"
+            href="assets/docs/Krushal_Kalkani_ML_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -117,9 +117,7 @@
                   <h3 class="course-title">Machine Learning Specialization</h3>
                   <span class="course-badge is-beginner">Beginner</span>
                 </div>
-                <p class="course-provider">
-                  DeepLearning.AI + Stanford Online
-                </p>
+                <p class="course-provider">DeepLearning.AI + Stanford Online</p>
                 <p class="course-why">
                   Covers supervised, unsupervised learning, and neural network
                   basics. This is the universal starting point every ML Engineer
@@ -540,7 +538,10 @@
         </section>
 
         <footer class="roadmap-footer">
-          <p>All courses are free to audit on DeepLearning.AI. No affiliate links.</p>
+          <p>
+            All courses are free to audit on DeepLearning.AI. No affiliate
+            links.
+          </p>
           <p>Share this page if it helped you.</p>
           <div class="share-row">
             <a
@@ -731,20 +732,22 @@
         ).matches;
 
         const isScrollable = () => {
-          const scroller = document.scrollingElement || document.documentElement;
+          const scroller =
+            document.scrollingElement || document.documentElement;
           return scroller.scrollHeight > window.innerHeight + 56;
         };
 
         const isNearBottom = () => {
-          const scroller = document.scrollingElement || document.documentElement;
+          const scroller =
+            document.scrollingElement || document.documentElement;
           return (
-            scroller.scrollTop + window.innerHeight >= scroller.scrollHeight - 80
+            scroller.scrollTop + window.innerHeight >=
+            scroller.scrollHeight - 80
           );
         };
 
         const update = () => {
-          const show =
-            isScrollable() && !isNearBottom() && window.scrollY < 72;
+          const show = isScrollable() && !isNearBottom() && window.scrollY < 72;
           cue.classList.toggle("is-hidden", !show);
           cue.setAttribute("aria-hidden", String(!show));
         };

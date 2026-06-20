@@ -16,14 +16,14 @@
       property="og:description"
       content="Full-stack developer specializing in AI/ML and Python"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/png" href="./Images/favicon.png" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
     <title>Krushal Kalkani - Portfolio</title>
   </head>
 
@@ -56,7 +56,7 @@
         <div class="side-tools">
           <a
             class="nav-resume"
-            href="./Krushal_Kalkani_ML_Resume.pdf"
+            href="assets/docs/Krushal_Kalkani_ML_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -710,7 +710,7 @@
 
         const FONT_STACK =
           'ui-monospace, "SFMono-Regular", "Menlo", "Consolas", monospace';
-        const RAMP = " .:-=+*#%@"; // must match scripts/asciify.py
+        const RAMP = " .:-=+*#%@"; // must match the ramp used to build data/portrait.json
         const LAST = RAMP.length - 1;
         const STIFFNESS = 0.08; // spring pull back toward home
         const DAMPING = 0.75; // velocity retained each frame
@@ -871,7 +871,7 @@
           requestAnimationFrame(step);
         };
 
-        fetch("portrait.json", { cache: "no-cache" })
+        fetch("data/portrait.json", { cache: "no-cache" })
           .then((res) => {
             if (!res.ok) throw new Error(`portrait.json ${res.status}`);
             return res.json();
