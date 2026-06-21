@@ -56,7 +56,6 @@
             <a href="#projects" class="side-link">Projects</a>
             <a href="blog.html" class="side-link">Blog</a>
           </nav>
-          <div class="nav-agent-track" aria-hidden="true"></div>
         </div>
 
         <div class="side-tools">
@@ -101,8 +100,8 @@
         <section id="about" class="hero content-view">
           <div class="hero-copy" data-reveal>
             <p class="lead">
-              I’m 24 and currently pursuing my master’s in Computer Science at
-              Florida Atlantic University, graduating in May 2026.
+              I’m 25 and recently completed my master’s in Computer Science at
+              Florida Atlantic University.
             </p>
             <p class="hero-text">
               I’m open to ML engineering, software engineering, and internship
@@ -736,15 +735,16 @@
         let fontSize = 0;
         let cssW = 0;
         let cssH = 0;
-        let accent = "#3fffc2";
+        let accent = "#5b9dff";
 
         const pointer = { x: 0, y: 0, active: false };
 
         const readAccent = () => {
-          // The portrait always renders in its dark-mode palette — even on
-          // the light site it sits on a dark backdrop — so keep the bright
-          // accent and never switch to the light-theme value.
-          accent = "#3fffc2";
+          // Ink the portrait per theme so it reads with no backdrop box:
+          // a bright sky blue on the dark site, a strong, saturated blue on
+          // the light one (a deep near-ink tone was too faint on the pale page).
+          accent =
+            document.body.dataset.theme === "light" ? "#2563eb" : "#5b9dff";
         };
 
         // Recompute the grid geometry for the current canvas box + DPR.

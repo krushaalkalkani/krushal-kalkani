@@ -159,7 +159,7 @@ a:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 16px 0 20px;
+  padding: 32px 0 20px;
   background: var(--bg);
   border-bottom: 1px solid var(--line);
 }
@@ -168,23 +168,6 @@ a:focus-visible {
   position: relative;
   flex: 1;
   min-width: 0;
-  padding-bottom: 20px;
-}
-
-.nav-agent-track {
-  position: absolute;
-  right: 0;
-  bottom: 8px;
-  left: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--line-strong) 8%,
-    var(--line-strong) 92%,
-    transparent
-  );
-  pointer-events: none;
 }
 
 .side-links {
@@ -488,15 +471,13 @@ body[data-theme="light"] .portrait-card {
   box-shadow: none;
 }
 
-/* On the light site the portrait keeps its dark-mode backdrop so the
-   ASCII art stays readable and on-brand. */
+/* No backdrop on the light site — the ASCII art sits straight on the page
+   and stays readable because the canvas inks itself in the light-theme
+   accent (see readAccent in index.html). */
 body[data-theme="light"] .portrait-card--ascii {
-  border-color: var(--line-strong);
-  border-radius: 14px;
-  background-color: #071426;
-  background-image: radial-gradient(rgba(118, 169, 255, 0.08) 1px, transparent 1px);
-  background-size: 22px 22px;
-  box-shadow: 0 14px 32px -22px rgba(15, 20, 25, 0.2);
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
 }
 
 .portrait-canvas {
@@ -815,11 +796,6 @@ body[data-theme="light"] .portrait-card--ascii {
   .side-nav__track {
     order: 3;
     flex: 1 1 100%;
-    padding-bottom: 0;
-  }
-
-  .nav-agent-track {
-    display: none;
   }
 
   .side-links {
@@ -1671,7 +1647,7 @@ body[data-theme="light"] .portrait-card--ascii {
   font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.035em;
-  margin: 8px 0 10px;
+  margin: 0 0 10px;
 }
 
 .blog-hero__subtitle {
