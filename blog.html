@@ -247,8 +247,18 @@
           );
 
         const MONTHS = [
-          "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-          "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
         ];
         const niceDate = (iso) => {
           const parts = String(iso).split("-").map(Number);
@@ -292,9 +302,7 @@
         const cardHTML = (post, featured) => {
           // A post can be its own standalone page via "url"; otherwise it
           // lives at posts/<slug>.html.
-          const url = post.url
-            ? esc(post.url)
-            : `posts/${esc(post.slug)}.html`;
+          const url = post.url ? esc(post.url) : `posts/${esc(post.slug)}.html`;
           const featuredClass = featured ? " post-card--featured" : "";
           const featuredLabel = featured
             ? '<span class="post-card__featured-label">Featured</span>'
@@ -345,7 +353,8 @@
           .then((data) => {
             const posts = Array.isArray(data.posts) ? data.posts.slice() : [];
             if (!posts.length) {
-              if (status) status.textContent = "No posts yet — check back soon.";
+              if (status)
+                status.textContent = "No posts yet — check back soon.";
               return;
             }
             // Newest first.
@@ -383,20 +392,22 @@
         ).matches;
 
         const isScrollable = () => {
-          const scroller = document.scrollingElement || document.documentElement;
+          const scroller =
+            document.scrollingElement || document.documentElement;
           return scroller.scrollHeight > window.innerHeight + 56;
         };
 
         const isNearBottom = () => {
-          const scroller = document.scrollingElement || document.documentElement;
+          const scroller =
+            document.scrollingElement || document.documentElement;
           return (
-            scroller.scrollTop + window.innerHeight >= scroller.scrollHeight - 80
+            scroller.scrollTop + window.innerHeight >=
+            scroller.scrollHeight - 80
           );
         };
 
         const update = () => {
-          const show =
-            isScrollable() && !isNearBottom() && window.scrollY < 72;
+          const show = isScrollable() && !isNearBottom() && window.scrollY < 72;
           cue.classList.toggle("is-hidden", !show);
           cue.setAttribute("aria-hidden", String(!show));
         };
